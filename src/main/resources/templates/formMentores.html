@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Materialize Selects Example</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width = device-width, initial-scale = 1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    
+	function voltar(){
+		window.history.go(-1);
+	}
+  </script>
+  
+</head>
+<body class="container">
+
+	<div class="card-panel teal lighten-2" align="center">
+		<h1>Teacher Match</h1>
+	</div>
+	
+	<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
+		<span><i class="material-icons left">info</i>Mentores - Processo Seletivo</span>
+	</div>
+
+	<div>
+		A Programa de Mentoria "Educação em tempos de Covid" é uma iniciativa da Eductus em apoio ao corpo estudantil afetado pela suspensão das aulas por conta da Pandemia por Corona Vírus.<br><br> 
+		Iremos te conectar a um(a) estudante que precisa de suporte de preparação para o Exame Nacional do Ensino Médio - ENEM e oferecer suporte em áreas de desenvolvimento pessoal.<br><br>
+		O Programa será online e você pode estar em qualquer parte do país. Durante o Programa:<br>
+		<ul>
+			<li>Deverá realizar uma reunião semanal com o(a) mentorando(a). Note que o intuito dessas reuniões é guiar o mentorando a como estudar nessa matéria específica e responder dúvidas acadêmicas. Iremos te ajudar na produção de materiais informativos sobre empresas e plataformas de ensino gratuitos que podem ser utilizadas nos estudos;</li>
+			<li>Terá acesso a atividades como oficinas e lives sobre temas como: saúde mental, produtividade e organização, entre outros.</li>
+		</ul>
+		Duração: 3 meses <br><br>
+		O programa é gratuito<br><br>
+		A disponibilidade de carga horária necessária para participação da mentoria é de 4 horas semanais. <br><br>
+		Mentores e Mentorandos assinarão termos de compromisso e vão receber certificado.<br><br>
+		Tem alguma dúvida? Envie um email para eductus.me@gmail.com
+	</div>
+	
+	<br><br>
+	
+	<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
+		<span><i class="material-icons left">assignment_ind</i>Formulário</span>
+	</div>
+	
+	<div class="row">
+		<form action="" class="col s12">
+			<div class="input-field col s12">
+				<label>E-mail</label><br>
+				<input type="text" id="email" name="email"><br><br>
+			</div>
+			<div class="input-field col s12">
+				<label>Nome Completo</label><br>
+				<input type="text" id="name" name="name"><br><br>
+			</div>
+			<div class="input-field col s12">
+				<label>Número Celular</label><br>
+				<input type="text" id="telefone" name="telefone"><br>
+			</div>	
+			<div class="input-field col s12">
+				<label>Data de Nascimento</label><br>
+				<input type="text" id="nascimento" name="nascimento"><br>
+			</div>		
+			<div class="input-field col s12">
+				<label>Cidade</label><br>
+				<input type="text" id="cidade" name="cidade"><br>
+			</div>	
+			
+			<div class="input-field col s12">
+				<label>Estado</label><br>
+			    <select name="estado">
+			    	<option value="false" disabled selected>Select</option>
+				    <option value="RO">Rondônia</option>
+				    <option value="AC">Acre</option>
+				    <option value="AM">Amazonas</option>
+				    <option value="RR">Roraima</option>
+				    <option value="PA">Pará</option>
+				    <option value="AP">Amapá</option>
+				    <option value="TO">Tocantins</option>
+				    <option value="MA">Maranhão</option>
+				    <option value="PI">Piauí</option>
+				    <option value="CE">Ceará</option>
+				    <option value="RN">Rio Grande do Norte</option>
+				    <option value="PB">Paraíba</option>
+				    <option value="PE">Pernambuco</option>
+				    <option value="AL">Alagoas</option>
+				    <option value="SE">Sergipe</option>
+				    <option value="BA">Bahia</option>
+				    <option value="MG">Minas Gerais</option>
+				    <option value="ES">Espírito Santo</option>
+				    <option value="RJ">Rio de Janeiro</option>
+				    <option value="SP">São Paulo</option>
+				    <option value="PR">Paraná</option>
+				    <option value="SC">Santa Catarina</option>
+				    <option value="RS">Rio Grande do Sul</option>
+				    <option value="MS">Mato Grosso do Sul</option>
+				    <option value="MT">Mato Grosso</option>
+				    <option value="GO">Goiás</option>
+				    <option value="DF">Distrito Federal</option>
+			    </select>
+			</div>
+
+			<div class="input-field col s12">
+				<label>Quantas horas, em média, você pode dedicar ao programa?</label><br>
+				<input type="text" id="questao1" name="questao1"><br><br>
+			</div>	
+			<div class="input-field col s12">
+				<label>Qual sua profissão? Se for estudante, informe o curso ou ano escolar em que está</label><br>
+				<input type="text" id="questao2" name="questao2"><br><br>
+			</div>	
+			<div class="input-field col s12">
+				<label>Onde você trabalha? Se for estudante, informe o nome da Instituição em que estuda</label><br>
+				<input type="text" id="questao3" name="questao3"><br><br>
+			</div>	
+			<div class="input-field col s12">
+				<label>Por que você quer atuar como mentor(a)? (máximo de 100 caracteres).</label><br>
+				<input type="text" id="questao4" name="questao4"><br>
+			</div>
+			<div class="input-field col s12">
+				<label>Marque a área em que você acredita ter conhecimento necessário para auxiliar os jovens mentorandos. Atenção: você pode eleger 3 matérias obedecendo a ordem decrescente sendo "Opção 1" a matéria que você mais domina e assim por diante. Caso possa auxiliar em apenas uma, marque apenas opção 1.</label><br><br>
+			</div>
+			<div class="input-field col s4">
+				<select name="questao4Op1">
+					<option value="0" selected disabled>Opção 1</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>
+			<div class="input-field col s4">
+				<select name="questao4Op2">
+				<option value="0" selected disabled>Opção 2</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>	
+			<div class="input-field col s4">
+				<select name="questao4Op3">
+					<option value="0" selected disabled>Opção 3</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>De  acordo com a reposta da questão chave OPÇÃO 1, qual matéria você MAIS se sente confiante para mentorar um estudante? Qual matéria você se sente MENOS confiante para mentorar um estudante?</label><br><br>
+			</div>
+			<div class="input-field col s6">
+				<select name="questao5Mais">
+					<option value="" selected disabled>Mais Confiante</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>	
+			<div class="input-field col s6">
+				<select name="questao5Menos">
+					<option value="" selected disabled>Menos Confiante</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>	
+			<div class="input-field col s12">
+				<label>De  acordo com a reposta da questão chave OPÇÃO 2, qual matéria você MAIS se sente confiante para mentorar um estudante? Qual matéria você se sente MENOS confiante para mentorar um estudante?</label><br><br>
+			</div>
+			<div class="input-field col s6">
+				<select name="questao6Mais">
+					<option value="" selected disabled>Mais Confiante</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>	
+			<div class="input-field col s6">
+				<select name="questao6Menos">
+					<option value="" selected disabled>Menos Confiante</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>De  acordo com a reposta da questão chave OPÇÃO 3, qual matéria você MAIS se sente confiante para mentorar um estudante? Qual matéria você se sente MENOS confiante para mentorar um estudante?</label><br><br>
+			</div>
+			<div class="input-field col s6">
+				<select name="questao7Mais">
+					<option value="" selected disabled>Mais Confiante</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>	
+			<div class="input-field col s6">
+				<select name="questao7Menos">
+					<option value="" selected disabled>Menos Confiante</option>
+					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
+					<option value="2">2 - Matemática e suas tecnologias</option>
+					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
+					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
+					<option value="5">5 - Redação </option>
+					<option value="6">6 - Inglês  </option>
+					<option value="7">7 - Espanhol </option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>Qual foi a sua nota no enem/vestibulares em relação às matérias que você quer mentorar?</label><br><br><br>
+			</div>	
+			<div class="input-field col s2">
+				<label> Linguagens, códigos e suas tecnologias</label><br><br>
+				<input type="text" id="questao8A" name="questao8A"><br>
+			</div>
+			<div class="input-field col s2">
+				<label> Matemática e suas tecnologias</label><br><br>
+				<input type="text" id="questao8B" name="questao8B"><br>
+			</div>
+			<div class="input-field col s2">
+				<label> Ciências da natureza e suas tecnologias</label><br><br>
+				<input type="text" id="questao8C" name="questao8C"><br>
+			</div>
+			<div class="input-field col s2">
+				<label> Ciências Humanas e suas tecnologias</label><br><br>
+				<input type="text" id="questao8D" name="questao8D"><br>
+			</div>
+			<div class="input-field col s2">
+				<label> Redação</label><br><br>
+				<input type="text" id="questao8E" name="questao8E"><br>
+			</div>
+			<div class="input-field col s1">
+			<label> Inglês</label><br><br>
+				<input type="text" id="questao8F" name="questao8F"><br>
+			</div>
+			<div class="input-field col s1">
+				<label>Espanhol</label><br><br>
+				<input type="text" id="questao8G" name="questao8G"><br>
+			</div>
+			<div class="input-field col s12">
+				<label>Tem alguma experiência prévia em ajudar estudantes nessa matéria?</label><br><br>
+				<select id="questao9" name="questao9">
+					<option value="" selected disabled>Selecione</option>
+					<option value="sim" >Sim</option>
+					<option value="nao" >Não</option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<a class="btn waves-effect waves-light #e91e63 pink" href="javascript:voltar();"><i class="material-icons left">backspace</i>Back</a>
+				<button class="btn waves-effect waves-light" type="submit">Register<i class="material-icons right">send</i></button><br><br>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

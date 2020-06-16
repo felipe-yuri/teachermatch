@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>The Materialize Selects Example</title>
+<meta name="viewport" content="width = device-width, initial-scale = 1" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+	
+</script>
+
+<script>
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+	
+	function voltar(){
+		window.history.go(-1);
+	}
+	
+</script>
+
+</head>
+<body class="container">
+
+	<div class="card-panel teal lighten-2" align="center">
+		<h1>Teacher Match</h1>
+	</div>
+		</div>
+		<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
+		<span><i class="material-icons left">assignment_ind</i>People List</span>
+	</div>
+	<table class="responsive-table">
+		<thead>
+			<tr>
+				<th>CPF</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Age</th>
+				<th>Is Teacher?</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="people : ${listPeople}">
+				<td><span th:text="${people.cpf}"></span></td>
+				<td><span th:text="${people.name}"></span></td>
+				<td><span th:text="${people.email}"></span></td>
+				<td><span th:text="${people.age}"></span></td>
+				<td><span th:text="${people.isteacher} ? 'Yes' : 'No'"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<hr/>
+	<a class="waves-effect waves-light btn #e91e63 pink" href="javascript:voltar();"><i class="material-icons left">backspace</i>Back</a><br><br>
+
+
+
+</body>
+</html>

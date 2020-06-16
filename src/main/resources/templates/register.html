@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Materialize Selects Example</title>
+  <meta name="viewport" content="width = device-width, initial-scale = 1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    
+	function voltar(){
+		window.history.go(-1);
+	}
+  </script>
+  
+</head>
+<body class="container">
+
+	<div class="card-panel teal lighten-2" align="center">
+		<h1>Teacher Match</h1>
+	</div>
+		<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
+		<span><i class="material-icons left">assignment_ind</i>Register</span>
+	</div>
+	<div class="row">
+		<form action="/people/save" class="col s12" method="post">
+			<div class="input-field col s12">
+				<label>CPF</label><br>
+				<input type="text" id="cpf" name="cpf"><br><br>
+			</div>
+			<div class="input-field col s12">
+				<label>Full Name:</label><br>
+				<input type="text" id="name" name="name"><br><br>
+			</div>
+			<div class="input-field col s6">
+				<label>Email:</label><br>
+				<input type="text" id="email" name="email"><br><br>
+			</div>	
+			<div class="input-field col s3">
+				<label>Age:</label><br>
+				<input type="text" id="age" name="age"><br><br>
+			</div>			
+			<div class="input-field col s3">
+				<label>Are you teacher?</label><br>
+			    <select name="isteacher">
+			    	<option value="false" disabled selected>Select</option>
+				    <option value="false">No</option>
+				    <option value="true">Yes</option>
+			    </select>
+			</div>
+
+			<div class="input-field col s12">
+				<a class="btn waves-effect waves-light #e91e63 pink" href="javascript:voltar();"><i class="material-icons left">backspace</i>Back</a>
+				<button class="btn waves-effect waves-light" type="submit">Register<i class="material-icons right">send</i></button><br><br>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
