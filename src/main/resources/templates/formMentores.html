@@ -46,7 +46,7 @@
 	<br><br>
 	
 	<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
-		<span><i class="material-icons left">assignment_ind</i>Formulário</span>
+		<span><i class="material-icons left">assignment_ind</i>Dados pessoais</span>
 	</div>
 	
 	<div class="row">
@@ -105,7 +105,29 @@
 				    <option value="DF">Distrito Federal</option>
 			    </select>
 			</div>
-
+			</div>
+			<div class="row">
+			<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
+				<span><i class="material-icons left">assignment_ind</i>Questionário</span>
+			</div>
+			<div class="input-field col s12">
+				<label>Você já foi mentor(a) em algum ciclo passado?</label><br><br>
+				<select name="questao4">
+					<option value="0" selected disabled>Selecione</option>
+					<option value="1">Sim</option>
+					<option value="2">Não</option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>Quantas horas, em média, você pode dedicar ao programa?</label><br><br>
+				<select name="questao4">
+					<option value="0" selected disabled>Selecione</option>
+					<option value="1">0 ~ 4</option>
+					<option value="2">4 ~ 8</option>
+					<option value="2">8 ~ 12</option>
+					<option value="2">> 12</option>
+				</select>
+			</div>
 			<div class="input-field col s12">
 				<label>Quantas horas, em média, você pode dedicar ao programa?</label><br>
 				<input type="text" id="questao1" name="questao1"><br><br>
@@ -123,131 +145,45 @@
 				<input type="text" id="questao4" name="questao4"><br>
 			</div>
 			<div class="input-field col s12">
-				<label>Marque a área em que você acredita ter conhecimento necessário para auxiliar os jovens mentorandos. Atenção: você pode eleger 3 matérias obedecendo a ordem decrescente sendo "Opção 1" a matéria que você mais domina e assim por diante. Caso possa auxiliar em apenas uma, marque apenas opção 1.</label><br><br>
+				<label>Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria</label><br><br>
 			</div>
-			<div class="input-field col s4">
-				<select name="questao4Op1">
-					<option value="0" selected disabled>Opção 1</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
-			</div>
-			<div class="input-field col s4">
-				<select name="questao4Op2">
-				<option value="0" selected disabled>Opção 2</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
-			</div>	
-			<div class="input-field col s4">
-				<select name="questao4Op3">
-					<option value="0" selected disabled>Opção 3</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
+			<div class="input-field col s12">
+				<select name="questao4">
+					<option value="0" selected disabled>Primeia opção</option>
+					<option value="1">1 - Física</option>
+					<option value="2">2 - Química</option>
+					<option value="3">3 - Biologia</option>
+					<option value="4">4 - Matemática </option>
+					<option value="5">5 - História</option>
+					<option value="6">6 - Geografia </option>
+					<option value="7">7 - Filosofia</option>
+					<option value="8">8 - Sociologia</option>
+					<option value="9">9 - Gramática</option>
+					<option value="10">10 - Literatura</option>
+					<option value="11">11 - Redação</option>
+					<option value="12">12 - Inglês</option>
+					<option value="13">13 - Espanhol</option>
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>De  acordo com a reposta da questão chave OPÇÃO 1, qual matéria você MAIS se sente confiante para mentorar um estudante? Qual matéria você se sente MENOS confiante para mentorar um estudante?</label><br><br>
-			</div>
-			<div class="input-field col s6">
-				<select name="questao5Mais">
-					<option value="" selected disabled>Mais Confiante</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
-			</div>	
-			<div class="input-field col s6">
-				<select name="questao5Menos">
-					<option value="" selected disabled>Menos Confiante</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
-			</div>	
-			<div class="input-field col s12">
-				<label>De  acordo com a reposta da questão chave OPÇÃO 2, qual matéria você MAIS se sente confiante para mentorar um estudante? Qual matéria você se sente MENOS confiante para mentorar um estudante?</label><br><br>
-			</div>
-			<div class="input-field col s6">
-				<select name="questao6Mais">
-					<option value="" selected disabled>Mais Confiante</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
-			</div>	
-			<div class="input-field col s6">
-				<select name="questao6Menos">
-					<option value="" selected disabled>Menos Confiante</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
+				<label>Assinale a sua SEGUNDA opção de matéria para oferecer mentoria</label><br><br>
 			</div>
 			<div class="input-field col s12">
-				<label>De  acordo com a reposta da questão chave OPÇÃO 3, qual matéria você MAIS se sente confiante para mentorar um estudante? Qual matéria você se sente MENOS confiante para mentorar um estudante?</label><br><br>
-			</div>
-			<div class="input-field col s6">
-				<select name="questao7Mais">
-					<option value="" selected disabled>Mais Confiante</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
-				</select>
-			</div>	
-			<div class="input-field col s6">
-				<select name="questao7Menos">
-					<option value="" selected disabled>Menos Confiante</option>
-					<option value="1">1 - Linguagens, códigos e suas tecnologias</option>
-					<option value="2">2 - Matemática e suas tecnologias</option>
-					<option value="3">3 - Ciências da natureza e suas tecnologias</option>
-					<option value="4">4 - Ciências Humanas e suas tecnologias</option>
-					<option value="5">5 - Redação </option>
-					<option value="6">6 - Inglês  </option>
-					<option value="7">7 - Espanhol </option>
+				<select name="questao4">
+					<option value="0" selected disabled>Segunda opção</option>
+					<option value="1">1 - Física</option>
+					<option value="2">2 - Química</option>
+					<option value="3">3 - Biologia</option>
+					<option value="4">4 - Matemática </option>
+					<option value="5">5 - História</option>
+					<option value="6">6 - Geografia </option>
+					<option value="7">7 - Filosofia</option>
+					<option value="8">8 - Sociologia</option>
+					<option value="9">9 - Gramática</option>
+					<option value="10">10 - Literatura</option>
+					<option value="11">11 - Redação</option>
+					<option value="12">12 - Inglês</option>
+					<option value="13">13 - Espanhol</option>
 				</select>
 			</div>
 			<div class="input-field col s12">
