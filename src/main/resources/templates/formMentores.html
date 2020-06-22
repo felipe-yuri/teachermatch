@@ -6,7 +6,7 @@
   <meta name="viewport" content="width = device-width, initial-scale = 1" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
   </script>
@@ -292,6 +292,83 @@
 					<option value="sim" >Sim</option>
 					<option value="nao" >Não</option>
 				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>Pretendemos montar uma banca de redação para apoiar os mentorandos na produção textual para o ENEM. <br>Caso você seja professor(a), não é necessário informar a nota.</label><br><br>
+				<div class="input-field col s6">
+					<label>Tem interesse em compor esta banca?</label><br>
+					<select id="questao10A" name="questao10A">
+						<option value="" selected disabled>Selecione</option>
+						<option value="sim" >Sim</option>
+						<option value="nao" >Não</option>
+					</select>
+				</div>
+				<div class="input-field col s6">
+					<label>Informe a sua última nota da redação do enem</label><br>
+					<input type="text" id="questao10B" name="questao10B"><br>
+				</div>
+			</div>
+			<div class="input-field col s12">
+				<label>Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br>
+				<select id="questao11" name="questao11">
+						<option value="" selected disabled>Selecione</option>
+						<option value="sim" >Sim</option>
+						<option value="nao" >Não</option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>Esperamos, no mínimo, a dedicação de 4 horas semanais por parte dos mentores. Sabendo disso, marque os períodos que você tem disponibilidade de tempo para a mentoria </label><br><br>
+				<p>
+					<label>
+						<input type="checkbox" id="questao12A" name="questao12A" />
+						<span>Manhã</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="checkbox" id="questao12B" name="questao12B" />
+						<span>Tarde</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="checkbox" id="questao12C" name="questao12C" />
+						<span>Noite</span>
+					</label>
+				</p>
+			</div>
+			<div class="input-field col s12">
+				<label>Como você ficou sabendo desta iniciativa?</label><br><br>
+				<p>
+					<label>
+						<input type="radio" class="with-gap" id="questao12A" name="questao12A" />
+						<span>Instagram</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="radio" class="with-gap" id="questao12A" name="questao12A" />
+						<span>Facebook</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="radio" class="with-gap" id="questao12A" name="questao12A" />
+						<span>WhatsApp</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="radio" class="with-gap" id="questao12A" name="questao12A" />
+						<span>Amigos</span>
+					</label>
+				</p>
+				<p>
+					<label>
+						<input type="radio" class="with-gap" id="questao12A" name="questao12A" />
+						<span>Outros</span>
+					</label>
+				</p>
 			</div>
 			<div class="input-field col s12">
 				<a class="btn waves-effect waves-light #e91e63 pink" href="javascript:voltar();"><i class="material-icons left">backspace</i>Back</a>

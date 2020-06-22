@@ -21,16 +21,6 @@ public class PeopleController {
 	@Autowired
 	private PeopleRepository repository;
 	
-	@GetMapping(value = "/")
-	public String index() {
-		return "index";
-	}
-	
-	@GetMapping(value = "/register")
-	public String register() {
-		return "register";
-	}
-	
 	@GetMapping(value = "/people")
 	public String listPeople(Model model) {
 		Iterable<People> listPeople = repository.findAll();
