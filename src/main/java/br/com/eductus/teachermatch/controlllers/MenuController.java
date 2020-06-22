@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MenuController {
 
+	@GetMapping(value = "/formMentorandos")
+	public String formMentorandos() {
+		return "formMentorandos";
+	}
+	
 	@GetMapping("/formMentores")
 	public String formMentores() {
 		return "formMentores";
