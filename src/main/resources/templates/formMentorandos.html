@@ -21,18 +21,25 @@
 	    xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
 		xmlHttp.send(null);
 		listaCidades = JSON.parse(xmlHttp.response);
-		for (var i = 1; i < listaCidades.length; i++){
+		
+		$('select#cidades').empty();
+		for (var i = 0; i < listaCidades.length; i++){
+			if (i == 0){
+				$('select#cidades').append($('<option>', {
+				    value: i,
+				    text: "Selecione",
+				    disabled: true,
+				    selected: true
+				}));
+			}
 			$('select#cidades').append($('<option>', {
 			    value: i,
 			    text: listaCidades[i].nome
 			}));
 	    }
-		$('select').formSelect();
+		$('select#cidades').formSelect();
     }
     
-//     $(document).ready(function() {
-//       $('select').material_select();
-//     });
   $(document).ready(function(){
     $('select').formSelect();
   });
