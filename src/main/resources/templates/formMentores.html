@@ -15,6 +15,7 @@
   <script>
   
   function carregarCidades(){
+		$('select#cidades').empty();
 	 	var uf = document.getElementById("estados").value;
 	    var listaCidades;
 		var xmlHttp = new XMLHttpRequest();
@@ -22,11 +23,10 @@
 		xmlHttp.send(null);
 		listaCidades = JSON.parse(xmlHttp.response);
 		
-		$('select#cidades').empty();
 		for (var i = 0; i < listaCidades.length; i++){
 			if (i == 0){
 				$('select#cidades').append($('<option>', {
-				    value: i,
+				    value: "",
 				    text: "Selecione",
 				    disabled: true,
 				    selected: true
