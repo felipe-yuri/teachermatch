@@ -9,13 +9,31 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script>
-    $(document).ready(function() {
-      $('select').material_select();
-    });
+  
+  function carregarCidades(){
+	 	var uf = document.getElementById("estados").value;
+	    var listaCidades;
+		var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
+		xmlHttp.send(null);
+		listaCidades = JSON.parse(xmlHttp.response);
+		for (var i = 1; i < listaCidades.length; i++){
+			$('select#cidades').append($('<option>', {
+			    value: i,
+			    text: listaCidades[i].nome
+			}));
+	    }
+		$('select').formSelect();
+    }
+    
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+    
   </script>
   
 </head>
@@ -67,15 +85,10 @@
 			<div class="input-field col s12">
 				<label>Data de Nascimento</label><br>
 				<input type="text" id="nascimento" name="nascimento"><br>
-			</div>		
-			<div class="input-field col s12">
-				<label>Cidade</label><br>
-				<input type="text" id="cidade" name="cidade"><br>
-			</div>	
-			
+			</div>
 			<div class="input-field col s12">
 				<label>Estado</label><br>
-			    <select name="estado">
+			    <select name="estados" id="estados" onchange="carregarCidades()">
 			    	<option value="false" disabled selected>Selecione</option>
 				    <option value="RO">Rondônia</option>
 				    <option value="AC">Acre</option>
@@ -105,7 +118,13 @@
 				    <option value="GO">Goiás</option>
 				    <option value="DF">Distrito Federal</option>
 			    </select>
-			</div>
+			</div>		
+			<div class="input-field col s12">
+				<label>Cidade</label><br>
+				<select name="cidades" id="cidades">
+					<option value="false" disabled selected>Selecione</option>
+				</select>
+			</div>	
 		</div>
 			<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
 				<span><i class="material-icons left">assignment_ind</i>Questionário</span>
