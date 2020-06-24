@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Materialize Selects Example</title>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width = device-width, initial-scale = 1" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>The Materialize Selects Example</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width = device-width, initial-scale = 1" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  <script>
+	<script>
   
-  function carregarCidades(){
-		$('select#cidades').empty();
-	 	var uf = document.getElementById("estados").value;
-	    var listaCidades;
-		var xmlHttp = new XMLHttpRequest();
-	    xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
-		xmlHttp.send(null);
-		listaCidades = JSON.parse(xmlHttp.response);
-		
-		for (var i = 0; i < listaCidades.length; i++){
-			if (i == 0){
-				$('select#cidades').append($('<option>', {
-				    value: "",
-				    text: "Selecione",
-				    disabled: true,
-				    selected: true
-				}));
-			}
+	// Função para iniciar o input counter
+	$(document).ready(function() {
+		$('input#questao5, input#questao2').characterCounter();
+	});
+	
+	// Função para carregar lista de cidades da API do IBGE 
+	function carregarCidades(){
+	$('select#cidades').empty();
+		var uf = document.getElementById("estados").value;
+	   var listaCidades;
+	var xmlHttp = new XMLHttpRequest();
+	   xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
+	xmlHttp.send(null);
+	listaCidades = JSON.parse(xmlHttp.response);
+	
+	for (var i = 0; i < listaCidades.length; i++){
+		if (i == 0){
 			$('select#cidades').append($('<option>', {
-			    value: i,
-			    text: listaCidades[i].nome
+			    value: "",
+			    text: "Selecione",
+			    disabled: true,
+			    selected: true
 			}));
-	    }
-		$('select#cidades').formSelect();
-    }
+		}
+		$('select#cidades').append($('<option>', {
+		    value: i,
+		    text: listaCidades[i].nome
+		}));
+	   }
+	$('select#cidades').formSelect();
+	  }
+	
+	// Função para inicializar todos os selects
+	$(document).ready(function(){
+	  $('select').formSelect();
+	});
     
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-    
-  </script>
+	</script>
   
 </head>
 <body class="container">
@@ -83,11 +90,11 @@
 		<div class="row">
 			<div class="input-field col s12">
 				<label>E-mail</label><br>
-				<input type="text" id="email" name="email"><br><br>
+				<input type="text" id="email" name="email"><br>
 			</div>
 			<div class="input-field col s12">
 				<label>Nome Completo</label><br>
-				<input type="text" id="name" name="name"><br><br>
+				<input type="text" id="name" name="name"><br>
 			</div>
 			<div class="input-field col s12">
 				<label>Número Celular</label><br>
@@ -98,7 +105,7 @@
 				<input type="text" id="nascimento" name="nascimento"><br>
 			</div>		
 			<div class="input-field col s12">
-				<label>Estado</label><br>
+				<label>Estado</label><br><br>
 			    <select name="estados" id="estados" onchange="carregarCidades()">
 			    	<option value="" disabled selected>Selecione</option>
 				    <option value="RO">Rondônia</option>
@@ -131,19 +138,18 @@
 			    </select>
 			</div>
 			<div class="input-field col s12">
-				<label>Cidade</label><br>
+				<label>Cidade</label><br><br>
 				<select name="cidades" id="cidades">
 					<option value="false" disabled selected>Selecione</option>
 				</select>
 			</div>	
 		</div>
-			
 		<div class="card-panel teal lighten-2 #bdbdbd grey lighten-1" align="left">
 			<span><i class="material-icons left">assignment_ind</i>Questionário</span>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<label>Suas aulas foram suspensas devido ao Corona Vírus?</label><br>
+				<label>Suas aulas foram suspensas devido ao Corona Vírus?</label><br><br>
 				<select name="questao1">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">Sim, não estou tendo aulas de nenhuma forma</option>
@@ -152,11 +158,11 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Qual o nome da escola em que você estuda? Caso, já tenha concluído o Ensino Médio, informe em qual escola concluiu.</label><br>
-				<input type="text" id="questao2" name="questao4" length = "100" maxlength = "100">
+				<label>Qual o nome da escola em que você estuda? Caso, já tenha concluído o Ensino Médio, informe em qual escola concluiu.</label><br><br>
+				<input type="text" id="questao2" name="questao2" data-length = "100" maxlength = "100">
 			</div>
 			<div class="input-field col s12">
-				<label>Qual seu ano escolar?</label><br>
+				<label>Qual seu ano escolar?</label><br><br>
 				<select name="questao3">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">1º Ano do ensino médio</option>
@@ -168,7 +174,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Qual tipo de instituição você estuda?</label><br>
+				<label>Qual tipo de instituição você estuda?</label><br><br>
 				<select name="questao4">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">Escola Privada</option>
@@ -179,13 +185,11 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Por que você quer participar do programa de mentoria?</label><br>
-				<input type="text" id="questao5" name="questao4" length = "100" maxlength = "100">
+				<label>Por que você quer participar do programa de mentoria?</label><br><br>
+				<input type="text" id="questao5" name="questao5" data-length = "100" maxlength = "100">
 			</div>
 			<div class="input-field col s12">
-				<label>Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label>
-			</div>
-			<div class="input-field col s12">
+				<label>Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
 				<select name="questao6">
 					<option value="" selected disabled>Primeia opção</option>
 					<option value="1">1 - Física</option>
@@ -204,9 +208,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label>
-			</div>
-			<div class="input-field col s12">
+				<label>Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
 				<select name="questao7">
 					<option value="" selected disabled>Segunda opção</option>
 					<option value="1">1 - Física</option>
@@ -225,7 +227,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br>
+				<label>Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br>
 				<select id="questao8" name="questao8">
 						<option value="" selected disabled>Selecione</option>
 						<option value="sim" >Sim</option>
@@ -233,7 +235,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Você tem disponibilidade 4 horas semanais para o programa?</label><br>
+				<label>Você tem disponibilidade 4 horas semanais para o programa?</label><br><br>
 				<select id="questao9" name="questao9">
 						<option value="" selected disabled>Selecione</option>
 						<option value="sim" >Sim</option>
@@ -241,7 +243,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Esperamos, no mínimo, a dedicação de 4 horas semanais por parte dos mentores. Sabendo disso, marque os períodos que você tem disponibilidade de tempo para a mentoria.</label><br><br><br>
+				<label>Esperamos, no mínimo, a dedicação de 4 horas semanais por parte dos mentores. Sabendo disso, marque os períodos que você tem disponibilidade de tempo para a mentoria.</label><br><br><br><br>
 				<p>
 					<label>
 						<input type="checkbox" id="questao10A" name="questao10A" />
