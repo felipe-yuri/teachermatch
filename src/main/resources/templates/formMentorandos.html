@@ -13,6 +13,31 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 	<script>
+	
+	// Função executada ao carregar a página
+	$(document).ready(function() {
+	 
+		 // Função para validar o preenchimento de todos os campos
+		 $("#cadastrar").click(function validarTodosCampos(){
+			var inputs = document.getElementsByTagName("input");
+			var selects = document.getElementsByTagName("select");
+		  
+			for (var i = 0; i < inputs.length; i++) {
+				if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
+					alert("Preencha o campo " + inputs[i].getAttribute("id"));
+					return false;
+				}
+			}
+			
+			for (var i = 0; i < selects.length; i++) {
+				if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
+					alert("Preencha o campo " + selects[i].getAttribute("id"));
+					return false;
+				}
+			}
+			return true
+		});
+	});
   
 	// Função para iniciar o input counter
 	$(document).ready(function() {
@@ -86,7 +111,7 @@
 		<span><i class="material-icons left">assignment_ind</i>Dados pessoais</span>
 	</div>
 	
-	<form action="" class="col s12">
+	<form action="/cadastrarMentorandos" class="col s12" methodo="POST">
 		<div class="row">
 			<div class="input-field col s12">
 				<label>E-mail</label><br>
@@ -306,7 +331,7 @@
 			</div>
 			<div class="input-field col s12">
 				<a class="btn waves-effect waves-light #e91e63 pink" href="/"><i class="material-icons left">backspace</i>Voltar</a>
-				<button class="btn waves-effect waves-light" type="submit">Enviar<i class="material-icons right">send</i></button><br><br>
+				<button class="btn waves-effect waves-light" type="submit" id="cadastrar">Enviar<i class="material-icons right">send</i></button><br><br>
 			</div>
 		</div>
 	</form>
