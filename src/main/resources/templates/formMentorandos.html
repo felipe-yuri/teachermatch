@@ -46,8 +46,8 @@
 	
 	// Função para carregar lista de cidades da API do IBGE 
 	function carregarCidades(){
-	$('select#cidades').empty();
-		var uf = document.getElementById("estados").value;
+	$('select#cidade').empty();
+		var uf = document.getElementById("estado").value;
 	   var listaCidades;
 	var xmlHttp = new XMLHttpRequest();
 	   xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
@@ -63,12 +63,12 @@
 			    selected: true
 			}));
 		}
-		$('select#cidades').append($('<option>', {
+		$('select#cidade').append($('<option>', {
 		    value: i,
 		    text: listaCidades[i].nome
 		}));
 	   }
-	$('select#cidades').formSelect();
+	$('select#cidade').formSelect();
 	  }
 	
 	// Função para inicializar todos os selects
@@ -111,7 +111,7 @@
 		<span><i class="material-icons left">assignment_ind</i>Dados pessoais</span>
 	</div>
 	
-	<form action="/cadastrarMentorandos" class="col s12" methodo="POST">
+	<form action="/cadastrarMentorandos" class="col s12" method="POST">
 		<div class="row">
 			<div class="input-field col s12">
 				<label>E-mail</label><br>
@@ -131,40 +131,40 @@
 			</div>		
 			<div class="input-field col s12">
 				<label>Estado</label><br><br>
-			    <select name="estados" id="estados" onchange="carregarCidades()">
-			    	<option value="" disabled selected>Selecione</option>
-				    <option value="RO">Rondônia</option>
-				    <option value="AC">Acre</option>
-				    <option value="AM">Amazonas</option>
-				    <option value="RR">Roraima</option>
-				    <option value="PA">Pará</option>
-				    <option value="AP">Amapá</option>
-				    <option value="TO">Tocantins</option>
-				    <option value="MA">Maranhão</option>
-				    <option value="PI">Piauí</option>
-				    <option value="CE">Ceará</option>
-				    <option value="RN">Rio Grande do Norte</option>
-				    <option value="PB">Paraíba</option>
-				    <option value="PE">Pernambuco</option>
-				    <option value="AL">Alagoas</option>
-				    <option value="SE">Sergipe</option>
-				    <option value="BA">Bahia</option>
-				    <option value="MG">Minas Gerais</option>
-				    <option value="ES">Espírito Santo</option>
-				    <option value="RJ">Rio de Janeiro</option>
-				    <option value="SP">São Paulo</option>
-				    <option value="PR">Paraná</option>
-				    <option value="SC">Santa Catarina</option>
-				    <option value="RS">Rio Grande do Sul</option>
-				    <option value="MS">Mato Grosso do Sul</option>
-				    <option value="MT">Mato Grosso</option>
-				    <option value="GO">Goiás</option>
-				    <option value="DF">Distrito Federal</option>
+			    <select name="estado" id="estado" onchange="carregarCidades()">
+				    	<option value="" disabled selected>Selecione</option>
+					    <option value="AC">Acre</option>
+					    <option value="AL">Alagoas</option>
+					    <option value="AP">Amapá</option>
+					    <option value="AM">Amazonas</option>
+					    <option value="BA">Bahia</option>
+					    <option value="CE">Ceará</option>
+					    <option value="DF">Distrito Federal</option>
+					    <option value="ES">Espírito Santo</option>
+					    <option value="GO">Goiás</option>
+					    <option value="RO">Rondônia</option>
+					    <option value="RR">Roraima</option>
+					    <option value="MA">Maranhão</option>
+					    <option value="MS">Mato Grosso do Sul</option>
+					    <option value="MT">Mato Grosso</option>
+					    <option value="MG">Minas Gerais</option>
+					    <option value="PA">Pará</option>
+					    <option value="PB">Paraíba</option>
+					    <option value="PR">Paraná</option>
+					    <option value="PE">Pernambuco</option>
+					    <option value="PI">Piauí</option>
+					    <option value="RJ">Rio de Janeiro</option>
+					    <option value="RN">Rio Grande do Norte</option>
+					    <option value="RS">Rio Grande do Sul</option>
+					    <option value="SC">Santa Catarina</option>
+					    <option value="SP">São Paulo</option>
+					    <option value="SE">Sergipe</option>
+					    <option value="TO">Tocantins</option>
 			    </select>
 			</div>
 			<div class="input-field col s12">
 				<label>Cidade</label><br><br>
-				<select name="cidades" id="cidades">
+				<select name="cidade" id="cidade">
 					<option value="false" disabled selected>Selecione</option>
 				</select>
 			</div>	
@@ -174,8 +174,8 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<label>Suas aulas foram suspensas devido ao Corona Vírus?</label><br><br>
-				<select name="questao1">
+				<label>1.Suas aulas foram suspensas devido ao Corona Vírus?</label><br><br>
+				<select id="questao1" name="questao1">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">Sim, não estou tendo aulas de nenhuma forma</option>
 					<option value="2">Não, estou tendo aulas EAD (à distância, online)</option>
@@ -183,7 +183,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Concluiu o ensino médio?</label><br><br>
+				<label>2.A - Concluiu o ensino médio?</label><br><br>
 				<select name="questao2A" id="questao2A" >
 					<option value="" selected disabled>Selecione</option>
 					<option value="sim">Sim</option>
@@ -191,11 +191,11 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Nome da escola em que você estuda/concluiu?</label><br><br>
+				<label>2.B - Nome da escola em que você estuda/concluiu?</label><br><br>
 				<input type="text" id="questao2B" name="questao2B" data-length = "100" maxlength = "100">
 			</div>
 			<div class="input-field col s12">
-				<label>Qual seu ano escolar?</label><br><br>
+				<label>3.Qual seu ano escolar?</label><br><br>
 				<select name="questao3">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">1º Ano do ensino médio</option>
@@ -207,8 +207,8 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Qual tipo de instituição você estuda?</label><br><br>
-				<select name="questao4">
+				<label>4.Qual tipo de instituição você estuda?</label><br><br>
+				<select id="questao4" name="questao4">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">Escola Privada</option>
 					<option value="2">Instituto Federal</option>
@@ -218,12 +218,12 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Por que você quer participar do programa de mentoria?</label><br><br>
+				<label>5.Por que você quer participar do programa de mentoria?</label><br><br>
 				<input type="text" id="questao5" name="questao5" data-length = "100" maxlength = "100">
 			</div>
 			<div class="input-field col s12">
-				<label>Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
-				<select name="questao6">
+				<label>6.Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
+				<select id="questao6" name="questao6">
 					<option value="" selected disabled>Primeia opção</option>
 					<option value="1">1 - Física</option>
 					<option value="2">2 - Química</option>
@@ -241,8 +241,8 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
-				<select name="questao7">
+				<label>7.Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
+				<select id="questao7" name="questao7">
 					<option value="" selected disabled>Segunda opção</option>
 					<option value="1">1 - Física</option>
 					<option value="2">2 - Química</option>
@@ -260,7 +260,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br><br>
+				<label>8.Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br><br>
 				<select id="questao8" name="questao8">
 						<option value="" selected disabled>Selecione</option>
 						<option value="sim" >Sim</option>
@@ -268,7 +268,7 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Você tem disponibilidade 4 horas semanais para o programa?</label><br><br>
+				<label>9.Você tem disponibilidade 4 horas semanais para o programa?</label><br><br>
 				<select id="questao9" name="questao9">
 						<option value="" selected disabled>Selecione</option>
 						<option value="sim" >Sim</option>
@@ -276,58 +276,24 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Qual a sua disponibilidade para a mentoria?</label><br><br>
-				<p>
-					<label>
-						<input type="checkbox" id="questao10A" name="questao10A" />
-						<span>Manhã</span>
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="checkbox" id="questao10B" name="questao10B" />
-						<span>Tarde</span>
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="checkbox" id="questao10C" name="questao10C" />
-						<span>Noite</span>
-					</label>
-				</p>
+				<label>10.Qual a sua disponibilidade para a mentoria?</label><br><br>
+				<select id="questao10" name="questao10">
+					<option value="" selected disabled>Selecione</option>
+					<option value="manha" >Manhã</option>
+					<option value="tarde" >Tarde</option>
+					<option value="noite" >Noite</option>
+				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>Como você ficou sabendo desta iniciativa?</label><br><br>
-				<p>
-					<label>
-						<input type="radio" class="with-gap" id="questao11A" name="questao11A" />
-						<span>Instagram</span>
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="radio" class="with-gap" id="questao11B" name="questao11B" />
-						<span>Facebook</span>
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="radio" class="with-gap" id="questao11C" name="questao11C" />
-						<span>WhatsApp</span>
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="radio" class="with-gap" id="questao11D" name="questao11D" />
-						<span>Amigos</span>
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="radio" class="with-gap" id="questao11E" name="questao11E" />
-						<span>Outros</span>
-					</label>
-				</p>
+				<label>11.Como você ficou sabendo desta iniciativa?</label><br><br>
+				<select id="questao11" name="questao11">
+					<option value="" selected disabled>Selecione</option>
+					<option value="manha" >Instagram</option>
+					<option value="tarde" >Facebook</option>
+					<option value="noite" >WhatsApp</option>
+					<option value="noite" >Amigos</option>
+					<option value="noite" >Outros</option>
+				</select>
 			</div>
 			<div class="input-field col s12">
 				<a class="btn waves-effect waves-light #e91e63 pink" href="/"><i class="material-icons left">backspace</i>Voltar</a>

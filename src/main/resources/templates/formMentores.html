@@ -24,14 +24,14 @@
 			  
 				for (var i = 0; i < inputs.length; i++) {
 					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
-						alert("Preencha o campo " + inputs[i].getAttribute("id"));
+						alert("Preencha o campo " + inputs[i].getAttribute("name"));
 						return false;
 					}
 				}
 				
 				for (var i = 0; i < selects.length; i++) {
 					if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
-						alert("Preencha o campo " + selects[i].getAttribute("id"));
+						alert("Preencha o campo " + selects[i].getAttribute("name"));
 						return false;
 					}
 				}
@@ -49,10 +49,10 @@
 	  // Função para carregar lista de cidade da API do IBGE 
 		function carregarCidades(){
 			$('select#cidade').empty();
-				var uf = document.getElementById("estado").value;
-			   var listaCidades;
+			var uf = document.getElementById("estado").value;
+			var listaCidades;
 			var xmlHttp = new XMLHttpRequest();
-			   xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
+			xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
 			xmlHttp.send(null);
 			listaCidades = JSON.parse(xmlHttp.response);
 			
@@ -112,7 +112,7 @@
 			<span><i class="material-icons left">assignment_ind</i>Dados pessoais</span>
 		</div>
 		
-		<form id="formMentores" action="/cadastrarMentores" class="col s12" method="POST">
+		<form action="/cadastrarMentores" class="col s12" method="POST">
 			<div class="row">
 				<div class="input-field col s12">
 					<label>E-mail</label><br>
@@ -175,16 +175,16 @@
 				</div>
 				<div class="row">
 				<div class="input-field col s12">
-					<label>Você já foi mentor(a) em algum ciclo passado?</label><br><br>
-					<select name="questao1">
+					<label>1.Você já foi mentor(a) em algum ciclo passado?</label><br><br>
+					<select id="questao1" name="questao1">
 						<option value="" selected disabled>Selecione</option>
 						<option value="1">Sim</option>
 						<option value="2">Não</option>
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Quantas horas, em média, você pode dedicar ao programa?</label><br><br><br>
-					<select name="questao2">
+					<label>2.Quantas horas, em média, você pode dedicar ao programa?</label><br><br><br>
+					<select id="questao2" name="questao2">
 						<option value="" selected disabled>Selecione</option>
 						<option value="1">De 1 a 4 horas semanais</option>
 						<option value="2">Entre 5 a 8 horas semanais</option>
@@ -193,19 +193,19 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Qual sua profissão? Se for estudante, informe o curso ou ano escolar em que está.</label><br><br>
+					<label>3.Qual sua profissão? Se for estudante, informe o curso ou ano escolar em que está.</label><br><br>
 					<input type="text" id="questao3" name="questao3"><br>
 				</div>	
 				<div class="input-field col s12">
-					<label>Onde você trabalha? Se for estudante, informe o nome da Instituição em que estuda.</label><br><br>
+					<label>4.Onde você trabalha? Se for estudante, informe o nome da Instituição em que estuda.</label><br><br>
 					<input type="text" id="questao4" name="questao4"><br>
 				</div>	
 				<div class="input-field col s12">
-					<label>Por que você quer atuar como mentor(a)?</label><br><br>
+					<label>5.Por que você quer atuar como mentor(a)?</label><br><br>
 					<input type="text" id="questao5" name="questao5" data-length = "100" maxlength = "100"><br>
 				</div>
 				<div class="input-field col s12">
-					<label>Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
+					<label>6.Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
 					<select name="questao6">
 						<option value="" selected disabled>Primeia opção</option>
 						<option value="1">1 - Física</option>
@@ -224,7 +224,7 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
+					<label>7.Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
 					<select name="questao7">
 						<option value="" selected disabled>Segunda opção</option>
 						<option value="1">1 - Física</option>
@@ -243,7 +243,7 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Qual foi a sua nota no enem/vestibulares em relação às matérias que você quer mentorar?</label><br><br><br>
+					<label>8.Qual foi a sua nota no enem/vestibulares em relação às matérias que você quer mentorar?</label><br><br><br>
 					<table class="responsive-table centered striped">
 						<thead>
 							<tr style="height: 10px;">
@@ -256,7 +256,6 @@
 								<th style="height: 60px;"><label>Espanhol</label></th>
 							</tr>
 						</thead>
-				
 						<tbody>
 							<tr rowspan="1" style="white-space:nowrap;">
 								<td><input type="text" id="questao8A" name="questao8A" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
@@ -271,7 +270,7 @@
 					</table>
 				</div>
 				<div class="input-field col s12">
-					<label>Tem experiência em ajudar estudantes nessa matéria?</label><br><br>
+					<label>9.Tem experiência em ajudar estudantes nessa matéria?</label><br><br>
 					<select id="questao9" name="questao9">
 						<option value="" selected disabled>Selecione</option>
 						<option value="sim" >Sim</option>
@@ -279,9 +278,9 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Pretendemos montar uma banca de redação para apoiar os mentorandos na produção textual para o ENEM. Caso você seja professor(a), não é necessário informar a nota.</label><br><br><br><br>
+					<label>10.Pretendemos montar uma banca de redação para apoiar os mentorandos na produção textual para o ENEM. Caso você seja professor(a), não é necessário informar a nota.</label><br><br><br><br>
 					<div class="input-field col s12">
-						<label>Tem interesse em compor esta banca?</label><br><br>
+						<label>10.A - Tem interesse em compor esta banca?</label><br><br>
 						<select id="questao10A" name="questao10A">
 							<option value="" selected disabled>Selecione</option>
 							<option value="sim" >Sim</option>
@@ -289,12 +288,12 @@
 						</select>
 					</div>
 					<div class="input-field col s12">
-						<label>Informe a sua última nota da redação do enem.</label><br><br>
+						<label>10.B - Informe a sua última nota da redação do enem.</label><br><br>
 						<input type="text" id="questao10B" name="questao10B"><br>
 					</div>
 				</div>
 				<div class="input-field col s12">
-					<label>Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br><br>
+					<label>11.Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br><br>
 					<select id="questao11" name="questao11">
 							<option value="" selected disabled>Selecione</option>
 							<option value="sim" >Sim</option>
@@ -302,58 +301,24 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Qual a sua disponibilidade para a mentoria?</label><br><br>
-					<p>
-						<label>
-							<input type="checkbox" id="questao12A" name="questao12A" />
-							<span>Manhã</span>
-						</label>
-					</p>
-					<p>
-						<label>
-							<input type="checkbox" id="questao12B" name="questao12B" />
-							<span>Tarde</span>
-						</label>
-					</p>
-					<p>
-						<label>
-							<input type="checkbox" id="questao12C" name="questao12C" />
-							<span>Noite</span>
-						</label>
-					</p>
+					<label>10.Qual a sua disponibilidade para a mentoria?</label><br><br>
+					<select id="questao10" name="questao10">
+						<option value="" selected disabled>Selecione</option>
+						<option value="manha" >Manhã</option>
+						<option value="tarde" >Tarde</option>
+						<option value="noite" >Noite</option>
+					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>Como você ficou sabendo desta iniciativa?</label><br><br>
-					<p>
-						<label>
-							<input type="radio" class="with-gap" id="questao13A" name="questao13A" />
-							<span>Instagram</span>
-						</label>
-					</p>
-					<p>
-						<label>
-							<input type="radio" class="with-gap" id="questao13B" name="questao13B" />
-							<span>Facebook</span>
-						</label>
-					</p>
-					<p>
-						<label>
-							<input type="radio" class="with-gap" id="questao13C" name="questao13C" />
-							<span>WhatsApp</span>
-						</label>
-					</p>
-					<p>
-						<label>
-							<input type="radio" class="with-gap" id="questao13D" name="questao13D" />
-							<span>Amigos</span>
-						</label>
-					</p>
-					<p>
-						<label>
-							<input type="radio" class="with-gap" id="questao13E" name="questao13E" />
-							<span>Outros</span>
-						</label>
-					</p>
+					<label>11.Como você ficou sabendo desta iniciativa?</label><br><br>
+					<select id="questao11" name="questao11">
+						<option value="" selected disabled>Selecione</option>
+						<option value="manha" >Instagram</option>
+						<option value="tarde" >Facebook</option>
+						<option value="noite" >WhatsApp</option>
+						<option value="noite" >Amigos</option>
+						<option value="noite" >Outros</option>
+					</select>
 				</div>
 				<div class="input-field col s12">
 					<a class="btn waves-effect waves-light #e91e63 pink" href="/"><i class="material-icons left">backspace</i>Voltar</a>
