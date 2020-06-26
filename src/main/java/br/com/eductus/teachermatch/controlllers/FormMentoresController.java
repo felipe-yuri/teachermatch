@@ -27,6 +27,8 @@ public class FormMentoresController {
 			@RequestParam String questao3,
 			@RequestParam String questao4,
 			@RequestParam String questao5,
+			@RequestParam String questao6,
+			@RequestParam String questao7,
 			@RequestParam String questao8A, 
 			@RequestParam String questao8B,
 			@RequestParam String questao8C,
@@ -38,18 +40,12 @@ public class FormMentoresController {
 			@RequestParam String questao10A, 
 			@RequestParam String questao10B, 
 			@RequestParam String questao11, 
-			@RequestParam boolean questao12A, 
-			@RequestParam boolean questao12B, 
-			@RequestParam boolean questao12C, 
-			@RequestParam boolean questao13A, 
-			@RequestParam boolean questao13B, 
-			@RequestParam boolean questao13C, 
-			@RequestParam boolean questao13D, 
-			@RequestParam boolean questao13E 
+			@RequestParam String questao12, 
+			@RequestParam String questao13 
 			) {
 		FormMentores form = new FormMentores(null, email, nome, telefone, nascimento, estado, cidade, questao1,
-				questao2, questao3, questao4, questao5, questao8A, questao8B, questao8C, questao8D, questao8E,
-				questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12A, questao12B, questao12C, questao13A, questao13B, questao13C, questao13D, questao13E);
+				questao2, questao3, questao4, questao5, questao6, questao7, questao8A, questao8B, questao8C, questao8D,
+				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
 		repository.save(form);
 		
 		return "/cadastroOk";

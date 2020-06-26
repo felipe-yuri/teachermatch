@@ -23,7 +23,10 @@
 			var selects = document.getElementsByTagName("select");
 		  
 			for (var i = 0; i < inputs.length; i++) {
+				inputs[i].style.background = "#ffffff";
 				if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
+					inputs[i].focus();
+					inputs[i].style.background = "#ef9a9a";
 					alert("Preencha o campo " + inputs[i].getAttribute("id"));
 					return false;
 				}
@@ -31,6 +34,7 @@
 			
 			for (var i = 0; i < selects.length; i++) {
 				if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
+					selects[i].focus();
 					alert("Preencha o campo " + selects[i].getAttribute("id"));
 					return false;
 				}
@@ -288,11 +292,11 @@
 				<label>11.Como você ficou sabendo desta iniciativa?</label><br><br>
 				<select id="questao11" name="questao11">
 					<option value="" selected disabled>Selecione</option>
-					<option value="manha" >Instagram</option>
-					<option value="tarde" >Facebook</option>
-					<option value="noite" >WhatsApp</option>
-					<option value="noite" >Amigos</option>
-					<option value="noite" >Outros</option>
+					<option value="1" >Instagram</option>
+					<option value="2" >Facebook</option>
+					<option value="3" >WhatsApp</option>
+					<option value="4" >Amigos</option>
+					<option value="5" >Outros</option>
 				</select>
 			</div>
 			<div class="input-field col s12">

@@ -23,7 +23,10 @@
 				var selects = document.getElementsByTagName("select");
 			  
 				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].style.background = "#ffffff";
 					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
+						inputs[i].focus();
+						inputs[i].style.background = "#ef9a9a";
 						alert("Preencha o campo " + inputs[i].getAttribute("name"));
 						return false;
 					}
@@ -206,7 +209,7 @@
 				</div>
 				<div class="input-field col s12">
 					<label>6.Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
-					<select name="questao6">
+					<select id="questao6" name="questao6">
 						<option value="" selected disabled>Primeia opção</option>
 						<option value="1">1 - Física</option>
 						<option value="2">2 - Química</option>
@@ -225,7 +228,7 @@
 				</div>
 				<div class="input-field col s12">
 					<label>7.Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
-					<select name="questao7">
+					<select id="questao7" name="questao7">
 						<option value="" selected disabled>Segunda opção</option>
 						<option value="1">1 - Física</option>
 						<option value="2">2 - Química</option>
@@ -301,8 +304,8 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>10.Qual a sua disponibilidade para a mentoria?</label><br><br>
-					<select id="questao10" name="questao10">
+					<label>12.Qual a sua disponibilidade para a mentoria?</label><br><br>
+					<select id="questao12" name="questao12">
 						<option value="" selected disabled>Selecione</option>
 						<option value="manha" >Manhã</option>
 						<option value="tarde" >Tarde</option>
@@ -310,14 +313,14 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>11.Como você ficou sabendo desta iniciativa?</label><br><br>
-					<select id="questao11" name="questao11">
+					<label>13.Como você ficou sabendo desta iniciativa?</label><br><br>
+					<select id="questao13" name="questao13">
 						<option value="" selected disabled>Selecione</option>
-						<option value="manha" >Instagram</option>
-						<option value="tarde" >Facebook</option>
-						<option value="noite" >WhatsApp</option>
-						<option value="noite" >Amigos</option>
-						<option value="noite" >Outros</option>
+						<option value="instagram" >Instagram</option>
+						<option value="facebook" >Facebook</option>
+						<option value="whatsApp" >WhatsApp</option>
+						<option value="amigos" >Amigos</option>
+						<option value="outros" >Outros</option>
 					</select>
 				</div>
 				<div class="input-field col s12">

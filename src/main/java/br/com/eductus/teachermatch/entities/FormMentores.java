@@ -34,6 +34,8 @@ public class FormMentores implements Serializable{
 	private String questao3;
 	private String questao4;
 	private String questao5;
+	private String questao6;
+	private String questao7;
 	private String questao8A; 
 	private String questao8B;
 	private String questao8C;
@@ -45,12 +47,6 @@ public class FormMentores implements Serializable{
 	private String questao10A; 
 	private String questao10B; 
 	private String questao11; 
-	private boolean questao12A; 
-	private boolean questao12B; 
-	private boolean questao12C; 
-	private boolean questao13A; 
-	private boolean questao13B; 
-	private boolean questao13C; 
-	private boolean questao13D; 
-	private boolean questao13E; 
+	private String questao12; 
+	private String questao13; 
 }
