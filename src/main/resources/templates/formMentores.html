@@ -35,6 +35,38 @@
 			
 			// Função para carregar contadores de caracteres nos inputs
 			$('input#questao5').characterCounter();
+			
+			// Função para validar o preenchimento de todos os campos
+			$("#cadastrar").click(function validarTodosCampos(){
+				var inputs = document.getElementsByTagName("input");
+				var selects = document.getElementsByTagName("select");
+			  
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].style.background = "#ffffff";
+					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
+						if (inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao") {
+						}
+						else{
+							inputs[i].focus();
+							inputs[i].style.background = "#ef9a9a";
+							alert("Preencha o campo " + inputs[i].getAttribute("name"));
+							return false;
+						}
+					}
+				}
+				
+				for (var i = 0; i < selects.length; i++) {
+					if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
+						if (selects[i].id == "questao3B" && document.getElementById("questao3A").value != 1) {
+						}
+						else{
+							alert("Preencha o campo " + selects[i].getAttribute("name"));
+							return false;
+						}
+					}
+				}
+				return true
+			});
 		});
 		
 		// Função para habilitar/desabilitar questão 10 B
@@ -67,42 +99,6 @@
 			$('select').formSelect();
 		}
 	  
-	  	// Função executada ao carregar a página
-	  	$(document).ready(function() {
-		  
-		  // Função para validar o preenchimento de todos os campos
-		  $("#cadastrar").click(function validarTodosCampos(){
-				var inputs = document.getElementsByTagName("input");
-				var selects = document.getElementsByTagName("select");
-			  
-				for (var i = 0; i < inputs.length; i++) {
-					inputs[i].style.background = "#ffffff";
-					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
-						if (inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao") {
-						}
-						else{
-							inputs[i].focus();
-							inputs[i].style.background = "#ef9a9a";
-							alert("Preencha o campo " + inputs[i].getAttribute("name"));
-							return false;
-						}
-					}
-				}
-				
-				for (var i = 0; i < selects.length; i++) {
-					if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
-						if (selects[i].id == "questao3B" && document.getElementById("questao3A").value != 1) {
-						}
-						else{
-							alert("Preencha o campo " + selects[i].getAttribute("name"));
-							return false;
-						}
-					}
-				}
-				return true
-			});
-	  	});
-		
 	  // Função para carregar lista de cidade da API do IBGE 
 		function carregarCidades(){
 			$('select#cidade').empty();
