@@ -13,9 +13,62 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 	<script>
+	
+		// Função para carregar scripts ao iniciar a página
+		$(document).ready(function() {
+			
+			// Função para remover disabled antes do submit do form
+			$('form').submit(function(e) {
+				$(':disabled').each(function(e) {
+				$(this).removeAttr('disabled');
+				})
+			});
+			
+			// Função para mudar a questao 3b
+			mudar10B();
+			
+			// Função para mudar a questao 3b
+			mudar3B();
+			
+			// Função para carregar todos os selects da página
+			$('select').formSelect();
+			
+			// Função para carregar contadores de caracteres nos inputs
+			$('input#questao5').characterCounter();
+		});
+		
+		// Função para habilitar/desabilitar questão 10 B
+		function mudar10B(){
+			var questao10A = document.getElementById("questao10A").value;
+			var questao10B = document.getElementById("questao10B");
+			
+			if (questao10A == "sim"){
+				questao10B.disabled = false;
+			}
+			else {
+				questao10B.disabled = true;
+				questao10B.value = "";
+			}
+			$('select').formSelect();
+		}
+	
+		// Função para habilitar questão 3B
+		function mudar3B() {
+			var questao3A = document.getElementById("questao3A").value;
+			var questao3B = document.getElementById("questao3B");
+			
+			if (questao3A == 1){
+				questao3B.disabled = false;
+			}
+			else {
+				questao3B.disabled = true;
+				questao3B.value = "";
+			}
+			$('select').formSelect();
+		}
 	  
-	  // Função executada ao carregar a página
-	  $(document).ready(function() {
+	  	// Função executada ao carregar a página
+	  	$(document).ready(function() {
 		  
 		  // Função para validar o preenchimento de todos os campos
 		  $("#cadastrar").click(function validarTodosCampos(){
@@ -25,30 +78,31 @@
 				for (var i = 0; i < inputs.length; i++) {
 					inputs[i].style.background = "#ffffff";
 					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
-						inputs[i].focus();
-						inputs[i].style.background = "#ef9a9a";
-						alert("Preencha o campo " + inputs[i].getAttribute("name"));
-						return false;
+						if (inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao") {
+						}
+						else{
+							inputs[i].focus();
+							inputs[i].style.background = "#ef9a9a";
+							alert("Preencha o campo " + inputs[i].getAttribute("name"));
+							return false;
+						}
 					}
 				}
 				
 				for (var i = 0; i < selects.length; i++) {
 					if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
-						alert("Preencha o campo " + selects[i].getAttribute("name"));
-						return false;
+						if (selects[i].id == "questao3B" && document.getElementById("questao3A").value != 1) {
+						}
+						else{
+							alert("Preencha o campo " + selects[i].getAttribute("name"));
+							return false;
+						}
 					}
 				}
 				return true
 			});
-	  });
+	  	});
 		
-	  
-	  
-	  // Função para iniciar o input counter
-		$(document).ready(function() {
-			$('input#questao5').characterCounter();
-		});
-	  
 	  // Função para carregar lista de cidade da API do IBGE 
 		function carregarCidades(){
 			$('select#cidade').empty();
@@ -75,12 +129,6 @@
 			   }
 			$('select#cidade').formSelect();
 		}
-	  
-	  // Função para inicializar todos os selects
-	  $(document).ready(function(){
-	    $('select').formSelect();
-	  });
-	    
 	  </script>
 	  
 	</head>
@@ -196,9 +244,37 @@
 					</select>
 				</div>
 				<div class="input-field col s12">
-					<label>3.Qual sua profissão? Se for estudante, informe o curso ou ano escolar em que está.</label><br><br>
-					<input type="text" id="questao3" name="questao3"><br>
+					<label>3.A - Qual sua profissão?</label><br><br>
+					<select id="questao3A" name="questao3A" onchange="mudar3B()">
+						<option value="" selected disabled>Selecione</option>
+						<option value="1">Estudante</option>
+						<option value="2">Professor</option>
+						<option value="3">Outros</option>
+					</select>
 				</div>	
+				<div class="input-field col s12">
+					<label>3.B - Informe o seu curso ou ano escolar.</label><br><br>
+					<select id="questao3B" name="questao3B">
+						<option value="" selected disabled>Selecione</option>
+						<option value="1">Ensino médio - 1° Ano</option>
+						<option value="2">Ensino médio - 2° Ano</option>
+						<option value="3">Ensino médio - 3° Ano</option>
+						<option value="4">Ensino médio - 4° Ano</option>
+						<option value="5">Educação superior - 1° Período</option>
+						<option value="6">Educação superior - 2° Período</option>
+						<option value="7">Educação superior - 3° Período</option>
+						<option value="8">Educação superior - 4° Período</option>
+						<option value="9">Educação superior - 5° Período</option>
+						<option value="10">Educação superior - 6° Período</option>
+						<option value="11">Educação superior - 7° Período</option>
+						<option value="12">Educação superior - 8° Período</option>
+						<option value="13">Educação superior - 9° Período</option>
+						<option value="14">Educação superior - 10° Período</option>
+						<option value="15">Educação superior - 11° Período</option>
+						<option value="16">Educação superior - 12° Período</option>
+						<option value="17">Outros</option>
+					</select>
+				</div>
 				<div class="input-field col s12">
 					<label>4.Onde você trabalha? Se for estudante, informe o nome da Instituição em que estuda.</label><br><br>
 					<input type="text" id="questao4" name="questao4"><br>
@@ -260,7 +336,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr rowspan="1" style="white-space:nowrap;">
+							<tr style="white-space:nowrap;">
 								<td><input type="text" id="questao8A" name="questao8A" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
 								<td><input type="text" id="questao8B" name="questao8B" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
 								<td><input type="text" id="questao8C" name="questao8C" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
@@ -268,7 +344,7 @@
 								<td><input type="text" id="questao8E" name="questao8E" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
 								<td><input type="text" id="questao8F" name="questao8F" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
 								<td><input type="text" id="questao8G" name="questao8G" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-							</tr>'
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -284,7 +360,7 @@
 					<label>10.Pretendemos montar uma banca de redação para apoiar os mentorandos na produção textual para o ENEM. Caso você seja professor(a), não é necessário informar a nota.</label><br><br><br><br>
 					<div class="input-field col s12">
 						<label>10.A - Tem interesse em compor esta banca?</label><br><br>
-						<select id="questao10A" name="questao10A">
+						<select id="questao10A" name="questao10A" onchange="mudar10B()">
 							<option value="" selected disabled>Selecione</option>
 							<option value="sim" >Sim</option>
 							<option value="nao" >Não</option>

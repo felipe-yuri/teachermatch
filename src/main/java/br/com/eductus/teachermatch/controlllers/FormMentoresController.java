@@ -23,8 +23,9 @@ public class FormMentoresController {
 			@RequestParam String estado,
 			@RequestParam String cidade,
 			@RequestParam String questao1,
-			@RequestParam Integer questao2,
-			@RequestParam String questao3,
+			@RequestParam String questao2,
+			@RequestParam String questao3A,
+			@RequestParam String questao3B,
 			@RequestParam String questao4,
 			@RequestParam String questao5,
 			@RequestParam String questao6,
@@ -44,7 +45,7 @@ public class FormMentoresController {
 			@RequestParam String questao13 
 			) {
 		FormMentores form = new FormMentores(null, email, nome, telefone, nascimento, estado, cidade, questao1,
-				questao2, questao3, questao4, questao5, questao6, questao7, questao8A, questao8B, questao8C, questao8D,
+				questao2, questao3A, questao3B, questao4, questao5, questao6, questao7, questao8A, questao8B, questao8C, questao8D,
 				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
 		repository.save(form);
 		
