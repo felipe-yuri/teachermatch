@@ -49,6 +49,6 @@ public class FormMentoresController {
 				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
 		repository.save(form);
 		
-		return "/cadastroOk.html";
+		return "redirect:/cadastroOk";
 	}
 }
