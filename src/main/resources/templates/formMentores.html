@@ -10,12 +10,22 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="/materialize/js/jquery.mask.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 	<script>
 	
 		// Função para carregar scripts ao iniciar a página
 		$(document).ready(function() {
+			
+			//Função para mascarar notas enem (questao 8 e questao 10B) 
+			$('.questao8, #questao10B').mask('000,0', {reverse: false});
+			
+			// Função para mascarar a data de nascimento
+			$('#nascimento').mask('00/00/0000');
+			
+			// Funçã para mascarar telefone
+			$('#telefone').mask('(00) 00000-0000');
 			
 			// Função para remover disabled antes do submit do form
 			$('form').submit(function(e) {
@@ -333,13 +343,13 @@
 						</thead>
 						<tbody>
 							<tr style="white-space:nowrap;">
-								<td><input type="text" id="questao8A" name="questao8A" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8B" name="questao8B" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8C" name="questao8C" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8D" name="questao8D" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8E" name="questao8E" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8F" name="questao8F" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8G" name="questao8G" placeholder="000,00"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8F" class="questao8" name="questao8F" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8G" class="questao8" name="questao8G" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -364,7 +374,7 @@
 					</div>
 					<div class="input-field col s12">
 						<label>10.B - Informe a sua última nota da redação do enem.</label><br><br>
-						<input type="text" id="questao10B" name="questao10B"><br>
+						<input type="text" id="questao10B" name="questao10B" placeholder="000,0"><br>
 					</div>
 				</div>
 				<div class="input-field col s12">
@@ -377,8 +387,8 @@
 				</div>
 				<div class="input-field col s12">
 					<label>12.Qual a sua disponibilidade para a mentoria?</label><br><br>
-					<select id="questao12" name="questao12">
-						<option value="" selected disabled>Selecione</option>
+					<select multiple id="questao12" name="questao12">
+						<option value="" disabled>Selecione</option>
 						<option value="manha" >Manhã</option>
 						<option value="tarde" >Tarde</option>
 						<option value="noite" >Noite</option>
