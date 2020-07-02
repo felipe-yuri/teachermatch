@@ -41,6 +41,6 @@ public class FormMentorandosController {
 				questao11);
 		repository.save(form);
 		
-		return "/cadastroOk";
+		return "redirect:/cadastroOk";
 	}
 }
