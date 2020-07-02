@@ -30,9 +30,4 @@ public class MenuController {
 	public String index() {
 		return "index";
 	}
-
-	@GetMapping(value = "/register")
-	public String register() {
-		return "register";
-	}
 }
