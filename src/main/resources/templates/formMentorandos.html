@@ -19,6 +19,29 @@
 	// Função executada ao carregar a página
 	$(document).ready(function() {
 		
+		// Função validar data de nascimento
+		function validarNascimento(){
+			var nascimento = document.getElementById("nascimento").value;
+			var partesNascimento = nascimento.split("/");
+			var data = new Date(partesNascimento[2], partesNascimento[1] - 1, partesNascimento[0]);
+
+			if (partesNascimento[0] > 31) {
+				alert("Data de nascimento inválida! Dia digitado não existe.");
+				return false;
+			}
+			if (partesNascimento[1] > 12) {
+				alert("Data de nascimento inválida! Mês digitado não existe.");
+				return false;
+			}
+			
+			if(data > new Date()){
+				alert("A data de nascimento é maior que a data atual!");
+				return false;
+			}
+			
+			return true;
+		}
+		
 		// Função para mascarar a data de nascimento
 		$('#nascimento').mask('00/00/0000');
 		
@@ -47,6 +70,11 @@
 					return false;
 				}
 			}
+			
+			if (validarNascimento() == false) {
+				return false;
+			}
+			
 			return true
 		});
 	});
@@ -144,11 +172,11 @@
 			</div>
 			<div class="input-field col s12">
 				<label>Número Celular</label><br>
-				<input type="text" id="telefone" name="telefone" placeholder="(00) 90000-00"><br>
+				<input type="text" id="telefone" name="telefone" placeholder="(00) 9 0000-0000"><br>
 			</div>	
 			<div class="input-field col s12">
 				<label>Data de Nascimento</label><br>
-				<input type="text" id="nascimento" name="nascimento" placeholder="mm/dd/aaaa"><br>
+				<input type="text" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa"><br>
 			</div>		
 			<div class="input-field col s12">
 				<label>Estado</label><br><br>

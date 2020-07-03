@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Materialize Selects Example</title>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width = device-width, initial-scale = 1" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+  <title>Mentoriza</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width = device-width, initial-scale = 1" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="/materialize/js/jquery.mask.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </script>
 
   <script>
     $(document).ready(function() {
-      $('select').material_select();
+    	
+    	//Função para carregar o sidenav
+    	$(document).ready(function(){
+    		$('.sidenav').sidenav();
+  		});
+    	
+    	// Função para carregar slidebar
+    	$(".dropdown-trigger").dropdown();
+      	 
+    	//
+    	$('select').material_select();
     });
   </script>
   
@@ -22,10 +33,16 @@
 	<div class="card-panel" align="center" style="background-color: #0c80ac">
 		<h1><font face="Holtwood One SC, serif" color="white">MENTORIZA</font></h1>
 	</div>
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content" style="background-color: #54c4db; color: white;">
+		<li><a href="/" class="collection-item "><i class="material-icons left" style="color: white;">home</i>Início</a></li>
+		<li><a href="/formMentores" class="collection-item"><i class="material-icons left" style="color: white;">assignment_ind</i>Processo Mentores</a></li>
+		<li><a href="/formMentorandos" class="collection-item"><i class="material-icons left" style="color: white;">assignment_ind</i>Processo Mentorandos</a></li>
+	</ul>
 	<nav>
 		<div class="nav-wrapper" style="background-color: #54c4db">
-<!-- 			<a href="" class="brand-logo"><img alt="logo" src="/materialize/img/logo.png" height="50px" width="50px"/> -->
-			<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<ul class="left hide-on-med-and-down" style="background-color: #54c4db">
+				<li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
 				<li><a href="/" class="collection-item "><i class="material-icons left" style="color: white;">home</i>Início</a></li>
 				<li><a href="/formMentores" class="collection-item"><i class="material-icons left" style="color: white;">assignment_ind</i>Processo Mentores</a></li>
 				<li><a href="/formMentorandos" class="collection-item"><i class="material-icons left" style="color: white;">assignment_ind</i>Processo Mentorandos</a></li>
