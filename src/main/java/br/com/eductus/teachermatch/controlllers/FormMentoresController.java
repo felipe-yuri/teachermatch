@@ -1,6 +1,7 @@
 package br.com.eductus.teachermatch.controlllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,7 +54,11 @@ public class FormMentoresController {
 				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
 		repository.save(form);
 		
-		servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!"); 
+		try {
+			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!"); 
+		} catch (MailException e){
+			System.err.println(e.getMessage());
+		}
 		
 		return "redirect:/cadastroOk";
 	}
