@@ -15,7 +15,7 @@ public class EmailConfig {
 	@Value("${mail.protocol}")
 	private String protocol;
 	
-	@Value("${mail.Host}")
+	@Value("${mail.host}")
 	private String host;
 	
 	@Value("${mail.port}")
