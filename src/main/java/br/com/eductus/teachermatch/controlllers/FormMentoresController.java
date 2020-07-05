@@ -7,12 +7,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.eductus.teachermatch.entities.FormMentores;
 import br.com.eductus.teachermatch.repositories.FormMentoresRepository;
+import br.com.eductus.teachermatch.services.EmailService;
 
 @Controller
 public class FormMentoresController {
 	
 	@Autowired
 	FormMentoresRepository repository;
+	
+	@Autowired
+	EmailService servicoEmail;
 	
 	@PostMapping(value = "/cadastrarMentores")
 	public String cadastrarMentores(
@@ -48,6 +52,8 @@ public class FormMentoresController {
 				questao2, questao3A, questao3B, questao4, questao5, questao6, questao7, questao8A, questao8B, questao8C, questao8D,
 				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
 		repository.save(form);
+		
+		servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!"); 
 		
 		return "redirect:/cadastroOk";
 	}
