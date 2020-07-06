@@ -2,6 +2,8 @@ package br.com.eductus.teachermatch.controlllers;
 
 import java.util.Date;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
@@ -69,8 +71,8 @@ public class FormMentoresController {
 		MentoresRepository.save(mentores);
 		
 		try {
-			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!"); 
-		} catch (MailException e){
+			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!", mentores); 
+		} catch (MailException | MessagingException e){
 			System.err.println(e.getMessage());
 		}
 		
