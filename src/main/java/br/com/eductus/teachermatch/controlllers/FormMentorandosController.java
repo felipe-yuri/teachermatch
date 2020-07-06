@@ -46,11 +46,11 @@ public class FormMentorandosController {
 				questao11);
 		repository.save(form);
 		
-		try {
-			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!"); 
-		} catch (MailException e){
-			System.err.println(e.getMessage());
-		}
+//		try {
+//			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!", ); 
+//		} catch (MailException e){
+//			System.err.println(e.getMessage());
+//		}
 		
 		return "redirect:/cadastroOk";
 	}
