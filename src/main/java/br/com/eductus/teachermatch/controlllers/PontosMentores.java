@@ -34,7 +34,7 @@ public class PontosMentores {
 		if ("2".equals(form.getQuestao3A())) {
 			capacidadeMentorar = 5;
 		}
-		if (Float.parseFloat(form.getQuestao3B()) >= 5 && notasAtendem == true && "1".equals(form.getQuestao1())) {
+		else if (Float.parseFloat(form.getQuestao3B()) >= 5 && notasAtendem == true && "1".equals(form.getQuestao1())) {
 			capacidadeMentorar = 4;
 		}
 		else if (Float.parseFloat(form.getQuestao3B()) >= 5 && notasAtendem == true ) {
