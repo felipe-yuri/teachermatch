@@ -1,5 +1,7 @@
 package br.com.eductus.teachermatch.controlllers;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
@@ -7,14 +9,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.eductus.teachermatch.entities.FormMentores;
+import br.com.eductus.teachermatch.entities.Mentores;
 import br.com.eductus.teachermatch.repositories.FormMentoresRepository;
+import br.com.eductus.teachermatch.repositories.MentoresRepository;
 import br.com.eductus.teachermatch.services.EmailService;
 
 @Controller
 public class FormMentoresController {
 	
 	@Autowired
-	FormMentoresRepository repository;
+	MentoresRepository MentoresRepository;
+	
+	@Autowired
+	FormMentoresRepository formMentoresRepository;
 	
 	@Autowired
 	EmailService servicoEmail;
@@ -49,10 +56,17 @@ public class FormMentoresController {
 			@RequestParam String questao12, 
 			@RequestParam String questao13 
 			) {
-		FormMentores form = new FormMentores(null, email, nome, telefone, nascimento, estado, cidade, questao1,
+		FormMentores form = new FormMentores(email, nome, telefone, nascimento, estado, cidade, questao1,
 				questao2, questao3A, questao3B, questao4, questao5, questao6, questao7, questao8A, questao8B, questao8C, questao8D,
 				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
-		repository.save(form);
+		formMentoresRepository.save(form);
+		
+		Date data = new Date();
+		String disciplina = questao6 + ", " + questao7;
+		PontosMentores pontosMentores = new PontosMentores();
+		
+		Mentores mentores = new Mentores(null, data, nome, email, telefone, disciplina, pontosMentores.calcularPontos(form), questao2, questao12);
+		MentoresRepository.save(mentores);
 		
 		try {
 			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!"); 

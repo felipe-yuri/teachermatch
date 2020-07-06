@@ -1,6 +1,6 @@
 package br.com.eductus.teachermatch.entities;
 
-import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,13 +21,13 @@ public class Mentores {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Instant dataHora;
-	private String mentor;
+	private Date dataHora;
+	private String nome;
 	private String email;
-	private String whatapp;
+	private String telefone;
 	private String disciplina;
-	private int capacidadeMentorar;
-	private int cargaHorariaDisponível;
-	private char turno;
+	private int pontuacao;
+	private String cargaHoraria;
+	private String turno;
 
 }
