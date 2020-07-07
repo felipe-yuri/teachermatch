@@ -16,6 +16,28 @@
 		// Função para carregar scripts ao iniciar a página
 		$(document).ready(function() {
 			
+			// Função para validar notas do enem
+			function validarNotasEnem(){
+				var questao8 = document.getElementsByClassName("questao8");
+				var questao10B = document.getElementById("questao10B").value;
+				
+				for (var i = 0; i < questao8.length; i++) {
+					if (questao8[i].value > "1000") {
+						questao8[i].focus();
+						questao8[i].style.background = "#ef9a9a";
+						alert("Nota inválida! Digite um valor menor que 1000.");
+						return false;
+					}
+				}
+				if (questao10B > "1000") {
+					questao10B.focus();
+					questao10B.style.background = "#ef9a9a";
+					alert("Nota inválida! Digite um valor menor que 1000.")
+					return false;
+				}
+				return true;
+			}
+			
 			// Função validar data de nascimento
 			function validarNascimento(){
 				var nascimento = document.getElementById("nascimento").value;
@@ -40,7 +62,7 @@
 			}
 			
 			// Função para mascarar notas enem (questao 8 e questao 10B) 
-			$('.questao8, #questao10B').mask('000,0', {reverse: false});
+			$('.questao8, #questao10B').mask('0000', {reverse: false});
 			
 			// Função para mascarar a data de nascimento
 			$('#nascimento').mask('00/00/0000');
@@ -98,6 +120,9 @@
 				}
 				
 				if (validarNascimento() == false) {
+					return false;
+				}
+				if (validarNotasEnem() == false) {
 					return false;
 				}
 				
@@ -376,13 +401,13 @@
 						</thead>
 						<tbody>
 							<tr style="white-space:nowrap;">
-								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8F" class="questao8" name="questao8F" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8G" class="questao8" name="questao8G" placeholder="000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8F" class="questao8" name="questao8F" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8G" class="questao8" name="questao8G" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -407,7 +432,7 @@
 					</div>
 					<div class="input-field col s12">
 						<label>10.B - Informe a sua última nota da redação do enem.</label><br><br>
-						<input type="text" id="questao10B" name="questao10B" placeholder="000,0"><br>
+						<input type="text" id="questao10B" name="questao10B" placeholder="0000"><br>
 					</div>
 				</div>
 				<div class="input-field col s12">
