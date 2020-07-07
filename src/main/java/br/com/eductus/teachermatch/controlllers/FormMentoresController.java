@@ -71,7 +71,7 @@ public class FormMentoresController {
 		MentoresRepository.save(mentores);
 		
 		try {
-			servicoEmail.emailCadastroOk(nome, email.trim(), "Mentoriza - Cadastro Realizado!", mentores); 
+			servicoEmail.emailCadastroMentores(nome, email.trim(), "Mentoriza - Cadastro Realizado!", mentores); 
 		} catch (MailException | MessagingException e){
 			System.err.println(e.getMessage());
 		}

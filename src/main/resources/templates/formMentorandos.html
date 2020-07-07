@@ -5,9 +5,6 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width = device-width, initial-scale = 1" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -232,8 +229,8 @@
 				<label>2.A - Concluiu o ensino médio?</label><br><br>
 				<select name="questao2A" id="questao2A" >
 					<option value="" selected disabled>Selecione</option>
-					<option value="sim">Sim</option>
-					<option value="nao">Não</option>
+					<option value="1">Sim</option>
+					<option value="2">Não</option>
 				</select>
 			</div>
 			<div class="input-field col s12">
@@ -264,12 +261,20 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>5.Por que você quer participar do programa de mentoria?</label><br><br>
-				<input type="text" id="questao5" name="questao5" data-length = "100" maxlength = "100">
+				<label>5.Faz cursinho pré ENEM?</label><br><br>
+				<select id="questao5" name="questao5">
+					<option value="" selected disabled>Selecione</option>
+					<option value="1">Sim</option>
+					<option value="2">Não</option>
+				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>6.Assinale a sua PRIMEIRA opção de matéria para receber mentoria.</label><br><br>
-				<select id="questao6" name="questao6">
+				<label>6.Por que você quer participar do programa de mentoria?</label><br><br>
+				<input type="text" id="questao6" name="questao6" data-length = "100" maxlength = "100">
+			</div>
+			<div class="input-field col s12">
+				<label>7.Assinale a sua PRIMEIRA opção de matéria para receber mentoria.</label><br><br>
+				<select id="questao7" name="questao7">
 					<option value="" selected disabled>Primeia opção</option>
 					<option value="1">1 - Física</option>
 					<option value="2">2 - Química</option>
@@ -287,8 +292,8 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>7.Assinale a sua SEGUNDA opção de matéria para receber mentoria.</label><br><br>
-				<select id="questao7" name="questao7">
+				<label>8.Assinale a sua SEGUNDA opção de matéria para receber mentoria.</label><br><br>
+				<select id="questao8" name="questao8">
 					<option value="" selected disabled>Segunda opção</option>
 					<option value="1">1 - Física</option>
 					<option value="2">2 - Química</option>
@@ -306,24 +311,24 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>8.Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br><br>
-				<select id="questao8" name="questao8">
-						<option value="" selected disabled>Selecione</option>
-						<option value="sim" >Sim</option>
-						<option value="nao" >Não</option>
-				</select>
-			</div>
-			<div class="input-field col s12">
-				<label>9.Você tem disponibilidade 4 horas semanais para o programa?</label><br><br>
+				<label>9.Você tem acesso a uma internet que te possibilite fazer vídeo chamadas e ver lives?</label><br><br><br>
 				<select id="questao9" name="questao9">
 						<option value="" selected disabled>Selecione</option>
-						<option value="sim" >Sim</option>
-						<option value="nao" >Não</option>
+						<option value="1" >Sim</option>
+						<option value="0" >Não</option>
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>10.Qual a sua disponibilidade para a mentoria?</label><br><br>
-				<select multiple id="questao10" name="questao10">
+				<label>10.Você tem disponibilidade 4 horas semanais para o programa?</label><br><br>
+				<select id="questao10" name="questao10">
+						<option value="" selected disabled>Selecione</option>
+						<option value="1" >Sim</option>
+						<option value="0" >Não</option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>11.Qual a sua disponibilidade para a mentoria?</label><br><br>
+				<select multiple id="questao11" name="questao11">
 					<option value="" disabled>Selecione</option>
 					<option value="manha" >Manhã</option>
 					<option value="tarde" >Tarde</option>
@@ -331,8 +336,19 @@
 				</select>
 			</div>
 			<div class="input-field col s12">
-				<label>11.Como você ficou sabendo desta iniciativa?</label><br><br>
-				<select id="questao11" name="questao11">
+				<label>12.Qual é o seu nível de dificuldade para aprender?</label><br><br>
+				<select id="questao12" name="questao12">
+					<option value="" disabled selected>Selecione</option>
+					<option value="1" >Não tenho dificuldade. Geralmente ensino o conteúdo para outras pessoas.</option>
+					<option value="2" >Não tenho dificuldade para aprender.</option>
+					<option value="3" >Consigo aprender sozinho com vídeos, sites ou livros.</option>
+					<option value="4" >Consigo aprender com ajuda de outra pessoa.</option>
+					<option value="5" >Tenho muita dificuldade para aprender sozinho.</option>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>13.Como você ficou sabendo desta iniciativa?</label><br><br>
+				<select id="questao13" name="questao13">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1" >Instagram</option>
 					<option value="2" >Facebook</option>
@@ -347,6 +363,29 @@
 			</div>
 		</div>
 	</form>
-
+	<footer class="page-footer" style="background-color: #f88d34">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Mentoriza</h5>
+					<p class="grey-text text-lighten-4">Suas escolhas fazem toda a diferença.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Eductus</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Sala Virtual Eductus (Moodle)</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright" style="background-color: #f46c3c">
+			<div class="container">
+				© 2020 Copyright - Todos os direitos reservados. <a class="grey-text text-lighten-4 right" href="#!">Eductus.me</a>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
