@@ -16,6 +16,14 @@
 		// Função para carregar scripts ao iniciar a página
 		$(document).ready(function() {
 			
+			// Função para esconder campos de notas do enem (questao8)
+			function esconderCampoNotasEnem(){
+				var questao6 = document.getElementById("questao6").value;
+				var questao7 = document.getElementById("questao7").value;
+				var questao8 = document.getElementsByClassName("questao8");
+				
+			}
+			
 			// Função para validar notas do enem
 			function validarNotasEnem(){
 				var questao8 = document.getElementsByClassName("questao8");
