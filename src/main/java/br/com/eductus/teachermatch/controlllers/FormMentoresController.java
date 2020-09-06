@@ -49,8 +49,6 @@ public class FormMentoresController {
 			@RequestParam String questao8C,
 			@RequestParam String questao8D,
 			@RequestParam String questao8E,
-			@RequestParam String questao8F,
-			@RequestParam String questao8G,
 			@RequestParam String questao9,
 			@RequestParam String questao10A, 
 			@RequestParam String questao10B, 
@@ -60,7 +58,7 @@ public class FormMentoresController {
 			) {
 		FormMentores form = new FormMentores(email, nome, telefone, nascimento, estado, cidade, questao1,
 				questao2, questao3A, questao3B, questao4, questao5, questao6, questao7, questao8A, questao8B, questao8C, questao8D,
-				questao8E, questao8F, questao8G, questao9, questao10A, questao10B, questao11, questao12, questao13);
+				questao8E, questao9, questao10A, questao10B, questao11, questao12, questao13);
 		formMentoresRepository.save(form);
 		
 		Date data = new Date();

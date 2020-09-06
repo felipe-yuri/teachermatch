@@ -38,8 +38,6 @@ public class FormMentores implements Serializable{
 	private String questao8C;
 	private String questao8D;
 	private String questao8E;
-	private String questao8F;
-	private String questao8G;
 	private String questao9;
 	private String questao10A; 
 	private String questao10B; 

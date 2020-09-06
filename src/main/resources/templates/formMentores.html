@@ -16,6 +16,13 @@
 		// Função para carregar scripts ao iniciar a página
 		$(document).ready(function() {
 			
+			// Carregar cidades ao voltar a página
+			var estado = document.getElementById("estado").value;
+			
+			if (estado != undefined || estado != "") {
+				carregarCidades();
+			}
+			
 			// Função para esconder campos de notas do enem (questao8)
 			function esconderCampoNotasEnem(){
 				var questao6 = document.getElementById("questao6").value;
@@ -405,8 +412,6 @@
 								<th style="height: 60px;"><label>Ciências da natureza e suas tecnologias</label></th>
 								<th style="height: 60px;"><label>Ciências Humanas e suas tecnologias</label></th>
 								<th style="height: 60px;"><label>Redação</label></th>
-								<th style="height: 60px;"><label>Inglês</label></th>
-								<th style="height: 60px;"><label>Espanhol</label></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -416,8 +421,6 @@
 								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
 								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
 								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8F" class="questao8" name="questao8F" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8G" class="questao8" name="questao8G" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
 							</tr>
 						</tbody>
 					</table>
