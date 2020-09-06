@@ -18,7 +18,7 @@ public class PontosMentorandos {
 		if (concluiuEnsinoMedio == 1) {concluiuEnsinoMedio = 1;}
 		else {concluiuEnsinoMedio = 1;}
 		
-		if (estudaEmEscolaPublica == 4) {estudaEmEscolaPublica = 1;}
+		if (estudaEmEscolaPublica == 4) {estudaEmEscolaPublica = 2;}
 		else {estudaEmEscolaPublica = 0;}
 		
 		if (fazCursinho == 2) {fazCursinho = 1;}
