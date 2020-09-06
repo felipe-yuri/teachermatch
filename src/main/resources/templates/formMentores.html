@@ -27,21 +27,22 @@
 			// Função para validar notas do enem
 			function validarNotasEnem(){
 				var questao8 = document.getElementsByClassName("questao8");
-				var questao10B = document.getElementById("questao10B").value;
+				var questao10B = document.getElementById("questao10B");
 				
 				for (var i = 0; i < questao8.length; i++) {
-					var nota = questao8[i].value.replace(',', '.');
-					if (parseFloat(nota) > 1050) {
+					var nota = parseFloat(questao8[i].value.replace(',', '.'));
+					if (nota > 1050) {
 						questao8[i].focus();
 						questao8[i].style.background = "#ef9a9a";
 						alert("Nota inválida! Digite um valor menor que 1050.");
 						return false;
 					}
-				}
-				if (questao10B > "1050") {
+				} 	
+				var nota = parseFloat(questao10B.value.replace(',', '.'));
+				if (nota > 1050) {
 					questao10B.focus();
 					questao10B.style.background = "#ef9a9a";
-					alert("Nota inválida! Digite um valor menor que 1000.")
+					alert("Nota inválida! Digite um valor menor que 1050.")
 					return false;
 				}
 				return true;
