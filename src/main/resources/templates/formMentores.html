@@ -30,14 +30,15 @@
 				var questao10B = document.getElementById("questao10B").value;
 				
 				for (var i = 0; i < questao8.length; i++) {
-					if (questao8[i].value > "1000") {
+					var nota = questao8[i].value.replace(',', '.');
+					if (parseFloat(nota) > 1050) {
 						questao8[i].focus();
 						questao8[i].style.background = "#ef9a9a";
-						alert("Nota inválida! Digite um valor menor que 1000.");
+						alert("Nota inválida! Digite um valor menor que 1050.");
 						return false;
 					}
 				}
-				if (questao10B > "1000") {
+				if (questao10B > "1050") {
 					questao10B.focus();
 					questao10B.style.background = "#ef9a9a";
 					alert("Nota inválida! Digite um valor menor que 1000.")
@@ -70,7 +71,38 @@
 			}
 			
 			// Função para mascarar notas enem (questao 8 e questao 10B) 
-			$('.questao8, #questao10B').mask('0000', {reverse: false});
+// 			function mascararNotas(){
+// 				var questao8 = document.getElementsByClassName("questao8");
+// 				var questao10B = document.getElementById("questao10B").value;
+				
+// 				for (var i = 0; i < questao8.length; i++) {
+					
+// 					switch (questao8[i].length) {
+// 					case 1:
+// 						$('.questao8, #questao10B').mask('0', {reverse: true});
+// 						break;
+// 					case 2:
+// 						$('.questao8, #questao10B').mask('0,0', {reverse: true});
+// 						break;
+// 					case 3:
+// 						$('.questao8, #questao10B').mask('00,0', {reverse: true});
+// 						break;
+// 					case 4:
+// 						$('.questao8, #questao10B').mask('000,0', {reverse: true});
+// 						break;
+// 					case 5:
+// 						$('.questao8, #questao10B').mask('0000,0', {reverse: true});
+// 						break;
+
+// 					default:
+// 						break;
+// 					}
+// 					if (questao8[i].length == 5 ) {
+						
+// 					}
+// 				}
+// 			}
+			$('.questao8, #questao10B').mask('0000,0', {reverse: true});
 			
 			// Função para mascarar a data de nascimento
 			$('#nascimento').mask('00/00/0000');
@@ -409,13 +441,13 @@
 						</thead>
 						<tbody>
 							<tr style="white-space:nowrap;">
-								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8F" class="questao8" name="questao8F" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8G" class="questao8" name="questao8G" placeholder="0000"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8F" class="questao8" name="questao8F" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8G" class="questao8" name="questao8G" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
 							</tr>
 						</tbody>
 					</table>
