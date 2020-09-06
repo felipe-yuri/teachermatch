@@ -11,19 +11,19 @@ public class PontosMentores {
 	private boolean notasAtendem = false;
 	
 	public boolean validarRequisitos(FormMentores form) {
-		if (Float.parseFloat(form.getQuestao8A()) < 620) {
+		if (Float.parseFloat(form.getQuestao8A().replace(",", ".")) < 620) {
 			return notasAtendem = false;
 		}
-		if (Float.parseFloat(form.getQuestao8B()) < 750) {
+		if (Float.parseFloat(form.getQuestao8B().replace(",", ".")) < 750) {
 			return notasAtendem = false;
 		}
-		if (Float.parseFloat(form.getQuestao8C()) < 630) {
+		if (Float.parseFloat(form.getQuestao8C().replace(",", ".")) < 630) {
 			return notasAtendem = false;
 		}
-		if (Float.parseFloat(form.getQuestao8D()) < 660) {
+		if (Float.parseFloat(form.getQuestao8D().replace(",", ".")) < 660) {
 			return notasAtendem = false;
 		}
-		if (Float.parseFloat(form.getQuestao8E()) < 840) {
+		if (Float.parseFloat(form.getQuestao8E().replace(",", ".")) < 840) {
 			return notasAtendem = false;
 		}
 		return notasAtendem = true;
