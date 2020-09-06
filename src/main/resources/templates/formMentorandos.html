@@ -38,13 +38,23 @@
 			
 			return true;
 		}
-		
+	
 		// Função para mascarar a data de nascimento
 		$('#nascimento').mask('00/00/0000');
 		
 		// Funçã para mascarar telefone
 		$('#telefone').mask('(00) 0 0000-0000');
 		
+		// Função para remover disabled antes do submit do form
+		$('form').submit(function(e) {
+			$(':disabled').each(function(e) {
+			$(this).removeAttr('disabled');
+			})
+		});
+		
+		// Função para mudar a questao 3
+		mudar3();
+
 		 // Função para validar o preenchimento de todos os campos
 		 $("#cadastrar").click(function validarTodosCampos(){
 			var inputs = document.getElementsByTagName("input");
@@ -62,11 +72,15 @@
 			
 			for (var i = 0; i < selects.length; i++) {
 				if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
-					selects[i].focus();
-					alert("Preencha o campo " + selects[i].getAttribute("id"));
-					return false;
+					if (selects[i].id == "questao3" && document.getElementById("questao2A").value == 1) {
+					}
+					else{
+						alert("Preencha o campo " + selects[i].getAttribute("name"));
+						return false;
+					}
 				}
 			}
+			
 			
 			if (validarNascimento() == false) {
 				return false;
@@ -75,7 +89,22 @@
 			return true
 		});
 	});
-  
+  	
+	// Função para habilitar questão 3
+	function mudar3() {
+		var questao2A = document.getElementById("questao2A").value;
+		var questao3 = document.getElementById("questao3");
+		
+		if (questao2A == 1){
+			questao3.disabled = true;
+			questao3.value = "";
+		}
+		else {
+			questao3.disabled = false;
+		}
+		$('select').formSelect();
+	}
+	
 	// Função para iniciar o input counter
 	$(document).ready(function() {
 		$('input#questao5, input#questao2B').characterCounter();
@@ -112,7 +141,7 @@
 	$(document).ready(function(){
 	  $('select').formSelect();
 	});
-    
+	
 	</script>
   
 </head>
@@ -217,7 +246,7 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<label>1.Suas aulas foram suspensas devido ao Corona Vírus?</label><br><br>
+				<label>1.Suas aulas estão suspensas devido ao COVID-19?</label><br><br>
 				<select id="questao1" name="questao1">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">Sim, não estou tendo aulas de nenhuma forma</option>
@@ -227,7 +256,7 @@
 			</div>
 			<div class="input-field col s12">
 				<label>2.A - Concluiu o ensino médio?</label><br><br>
-				<select name="questao2A" id="questao2A" >
+				<select name="questao2A" id="questao2A" onchange="mudar3()">
 					<option value="" selected disabled>Selecione</option>
 					<option value="1">Sim</option>
 					<option value="2">Não</option>
@@ -246,7 +275,6 @@
 					<option value="3">3º Ano do ensino médio</option>
 					<option value="4">4º Ano do ensino médio</option>
 					<option value="5">Ensino médio técnico</option>
-					<option value="6">Ensino médio finalizado e estou estudando para o ENEM</option>
 				</select>
 			</div>
 			<div class="input-field col s12">
