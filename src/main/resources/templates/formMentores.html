@@ -23,13 +23,109 @@
 				carregarCidades();
 			}
 			
-			// Função para esconder campos de notas do enem (questao8)
-			function esconderCampoNotasEnem(){
-				var questao6 = document.getElementById("questao6").value;
-				var questao7 = document.getElementById("questao7").value;
+			// Função para desabilitar notas de materias não selecioandas
+			function desabilitarNotasEnemNaoSelecionadas(){
+				var questao6 = document.getElementById("questao6");
+				var questao7 = document.getElementById("questao7");
 				var questao8 = document.getElementsByClassName("questao8");
 				
+				switch (parseInt(questao6.value)) {
+				case 1:
+					questao8[2].disabled = true;
+					questão8[2].value = "";
+					break;
+				case 2:
+					questao8[2].disabled = true;
+					questão8[2].value = "";
+					break;
+				case 3:
+					questao8[2].disabled = true;
+					questão8[2].value = "";
+					break;
+				case 4:
+					questao8[1].disabled = true;
+					questão8[1].value = "";
+					break;
+				case 5:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 6:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 7:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 8:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 9:
+					questao8[0].disabled = true;
+					questão8[0].value = "";
+					break;
+				case 10:
+					questao8[0].disabled = true;
+					questão8[0].value = "";
+					break;
+				case 11:
+					questao8[4].disabled = true;
+					questão8[4].value = "";
+					break;
+				}
+				
+				switch (parseInt(questao7.value)) {
+				case 1:
+					questao8[2].disabled = true;
+					questão8[2].value = "";
+					break;
+				case 2:
+					questao8[2].disabled = true;
+					questão8[2].value = "";
+					break;
+				case 3:
+					questao8[2].disabled = true;
+					questão8[2].value = "";
+					break;
+				case 4:
+					questao8[1].disabled = true;
+					questão8[1].value = "";
+					break;
+				case 5:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 6:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 7:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 8:
+					questao8[3].disabled = true;
+					questão8[3].value = "";
+					break;
+				case 9:
+					questao8[0].disabled = true;
+					questão8[0].value = "";
+					break;
+				case 10:
+					questao8[0].disabled = true;
+					questão8[0].value = "";
+					break;
+				case 11:
+					questao8[4].disabled = true;
+					questão8[4].value = "";
+					break;
+				}
+				
+				$('select').formSelect();
 			}
+			
 			
 			// Função para validar notas do enem
 			function validarNotasEnem(){
@@ -366,7 +462,7 @@
 				</div>
 				<div class="input-field col s12">
 					<label>6.Assinale a sua PRIMEIRA opção de matéria para oferecer mentoria.</label><br><br>
-					<select id="questao6" name="questao6">
+					<select id="questao6" name="questao6" onchange="desabilitarNotasEnemNaoSelecionadas();">
 						<option value="" selected disabled>Primeia opção</option>
 						<option value="1">1 - Física</option>
 						<option value="2">2 - Química</option>
@@ -379,13 +475,11 @@
 						<option value="9">9 - Gramática</option>
 						<option value="10">10 - Literatura</option>
 						<option value="11">11 - Redação</option>
-						<option value="12">12 - Inglês</option>
-						<option value="13">13 - Espanhol</option>
 					</select>
 				</div>
 				<div class="input-field col s12">
 					<label>7.Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
-					<select id="questao7" name="questao7">
+					<select id="questao7" name="questao7" onchange="desabilitarNotasEnemNaoSelecionadas();">
 						<option value="" selected disabled>Segunda opção</option>
 						<option value="1">1 - Física</option>
 						<option value="2">2 - Química</option>
@@ -398,8 +492,6 @@
 						<option value="9">9 - Gramática</option>
 						<option value="10">10 - Literatura</option>
 						<option value="11">11 - Redação</option>
-						<option value="12">12 - Inglês</option>
-						<option value="13">13 - Espanhol</option>
 					</select>
 				</div>
 				<div class="input-field col s12">
@@ -445,7 +537,7 @@
 					</div>
 					<div class="input-field col s12">
 						<label>10.B - Informe a sua última nota da redação do enem.</label><br><br>
-						<input type="text" id="questao10B" name="questao10B" placeholder="0000"><br>
+						<input type="text" id="questao10B" name="questao10B" placeholder="0000,0"><br>
 					</div>
 				</div>
 				<div class="input-field col s12">
