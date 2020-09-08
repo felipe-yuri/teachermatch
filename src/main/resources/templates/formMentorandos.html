@@ -16,6 +16,31 @@
 	// Função executada ao carregar a página
 	$(document).ready(function() {
 		
+		// Função para habilitar ou desabilitar questão 15
+		function desabilitarQuestao15(){
+			var questao14 = document.getElementById("questao14").value;
+			var questao15 = document.getElementById("questao15");
+			
+			if (questao14 == 6) {
+				questao15.disabled = false;
+			}
+			else {
+				questao15.disabled = true;
+				questao15.value = "";
+			}
+			
+		}
+		
+		// Executar ao alterar selecet
+		$("#questao14").on("change", desabilitarQuestao15);
+		
+		// Carregar cidades ao voltar a página
+		var estado = document.getElementById("estado").value;
+		
+		if (estado != undefined || estado != "") {
+			carregarCidades();
+		}
+		
 		// Função validar data de nascimento
 		function validarNascimento(){
 			var nascimento = document.getElementById("nascimento").value;
@@ -63,10 +88,14 @@
 			for (var i = 0; i < inputs.length; i++) {
 				inputs[i].style.background = "#ffffff";
 				if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
-					inputs[i].focus();
-					inputs[i].style.background = "#ef9a9a";
-					alert("Preencha o campo " + inputs[i].getAttribute("id"));
-					return false;
+					if (inputs[i].disabled == true) {
+					}
+					else{
+						inputs[i].focus();
+						inputs[i].style.background = "#ef9a9a";
+						alert("Preencha o campo " + inputs[i].getAttribute("name"));
+						return false;
+					}
 				}
 			}
 			
@@ -107,7 +136,7 @@
 	
 	// Função para iniciar o input counter
 	$(document).ready(function() {
-		$('input#questao5, input#questao2B').characterCounter();
+		$('input#questao5, input#questao2B, input#questao15').characterCounter();
 	});
 	
 	// Função para carregar lista de cidades da API do IBGE 
@@ -394,6 +423,10 @@
 					<option value="5" >LinkedIn</option>
 					<option value="6" >Outros</option>
 				</select>
+			</div>
+			<div class="input-field col s12">
+				<label>15. Caso a resposta anterior seja "Outros".</label><br><br>
+				<input type="text" id="questao15" name="questao15" placeholder="A outra plataforma é..." data-length = "50" maxlength = "50" disabled><br>
 			</div>
 			<div class="input-field col s12">
 				<a class="btn waves-effect waves-light" style="background-color: #f46c3c" href="/"><i class="material-icons left">backspace</i>Voltar</a>

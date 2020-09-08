@@ -16,12 +16,24 @@
 		// Função para carregar scripts ao iniciar a página
 		$(document).ready(function() {
 			
-			// Carregar cidades ao voltar a página
-			var estado = document.getElementById("estado").value;
-			
-			if (estado != undefined || estado != "") {
-				carregarCidades();
+			// Função para habilitar ou desabilitar questão 14
+			function desabilitarQuestao14(){
+				var questao13 = document.getElementById("questao13").value;
+				var questao14 = document.getElementById("questao14");
+				
+				if (questao13 == 6) {
+					questao14.disabled = false;
+				}
+				else {
+					questao14.disabled = true;
+					questao14.value = "";
+				}
+				
 			}
+			
+			// Executar ao alterar selecet
+			$("#questao13").on("change", desabilitarQuestao14);
+			
 			
 			// Função para desabilitar notas de materias não selecioandas
 			function desabilitarNotasEnemNaoSelecionadas(){
@@ -29,101 +41,123 @@
 				var questao7 = document.getElementById("questao7");
 				var questao8 = document.getElementsByClassName("questao8");
 				
-				switch (parseInt(questao6.value)) {
-				case 1:
-					questao8[2].disabled = true;
-					questão8[2].value = "";
-					break;
-				case 2:
-					questao8[2].disabled = true;
-					questão8[2].value = "";
-					break;
-				case 3:
-					questao8[2].disabled = true;
-					questão8[2].value = "";
-					break;
-				case 4:
-					questao8[1].disabled = true;
-					questão8[1].value = "";
-					break;
-				case 5:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 6:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 7:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 8:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 9:
-					questao8[0].disabled = true;
-					questão8[0].value = "";
-					break;
-				case 10:
-					questao8[0].disabled = true;
-					questão8[0].value = "";
-					break;
-				case 11:
-					questao8[4].disabled = true;
-					questão8[4].value = "";
-					break;
-				}
-				
-				switch (parseInt(questao7.value)) {
-				case 1:
-					questao8[2].disabled = true;
-					questão8[2].value = "";
-					break;
-				case 2:
-					questao8[2].disabled = true;
-					questão8[2].value = "";
-					break;
-				case 3:
-					questao8[2].disabled = true;
-					questão8[2].value = "";
-					break;
-				case 4:
-					questao8[1].disabled = true;
-					questão8[1].value = "";
-					break;
-				case 5:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 6:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 7:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 8:
-					questao8[3].disabled = true;
-					questão8[3].value = "";
-					break;
-				case 9:
-					questao8[0].disabled = true;
-					questão8[0].value = "";
-					break;
-				case 10:
-					questao8[0].disabled = true;
-					questão8[0].value = "";
-					break;
-				case 11:
-					questao8[4].disabled = true;
-					questão8[4].value = "";
-					break;
-				}
-				
-				$('select').formSelect();
+				for (var i = 0; i < questao8.length; i++) {
+					
+					switch (parseInt(questao6.value)) {
+					case 1:
+						questao8[2].disabled = false;
+						questao8[2].value = "";
+						break;
+					case 2:
+						questao8[2].disabled = false;
+						questao8[2].value = "";
+						break;
+					case 3:
+						questao8[2].disabled = false;
+						questao8[2].value = "";
+						break;
+					case 4:
+						questao8[1].disabled = false;
+						questao8[1].value = "";
+						break;
+					case 5:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 6:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 7:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 8:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 9:
+						questao8[0].disabled = false;
+						questao8[0].value = "";
+						break;
+					case 10:
+						questao8[0].disabled = false;
+						questao8[0].value = "";
+						break;
+					case 11:
+						questao8[4].disabled = false;
+						questao8[4].value = "";
+						break;
+						
+					default:
+						questao8[i].disabled = true;
+						questao8[i].value = 0;
+						break;
+					}
+					
+					switch (parseInt(questao7.value)) {
+					case 1:
+						questao8[2].disabled = false;
+						questao8[2].value = "";
+						break;
+					case 2:
+						questao8[2].disabled = false;
+						questao8[2].value = "";
+						break;
+					case 3:
+						questao8[2].disabled = false;
+						questao8[2].value = "";
+						break;
+					case 4:
+						questao8[1].disabled = false;
+						questao8[1].value = "";
+						break;
+					case 5:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 6:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 7:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 8:
+						questao8[3].disabled = false;
+						questao8[3].value = "";
+						break;
+					case 9:
+						questao8[0].disabled = false;
+						questao8[0].value = "";
+						break;
+					case 10:
+						questao8[0].disabled = false;
+						questao8[0].value = "";
+						break;
+					case 11:
+						questao8[4].disabled = false;
+						questao8[4].value = "";
+						break;
+						
+					default:
+						questao8[i].disabled = true;
+						questao8[i].value = 0;
+						break;
+					}
+				} 	
+			}
+			
+			// Executar ao alterar select
+			$("#questao6").on("change", desabilitarNotasEnemNaoSelecionadas);
+			$("#questao7").on("change", desabilitarNotasEnemNaoSelecionadas);
+			
+			// Carregar cidades ao voltar a página
+			var estado = document.getElementById("estado").value;
+			
+			if (estado != undefined || estado != "") {
+				carregarCidades();
 			}
 			
 			
@@ -200,7 +234,7 @@
 			$('select').formSelect();
 			
 			// Função para carregar contadores de caracteres nos inputs
-			$('input#questao5').characterCounter();
+			$('input#questao5, input#questao14').characterCounter();
 			
 			// Função para validar o preenchimento de todos os campos
 			$("#cadastrar").click(function validarTodosCampos(){
@@ -210,7 +244,9 @@
 				for (var i = 0; i < inputs.length; i++) {
 					inputs[i].style.background = "#ffffff";
 					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
-						if ((inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao" ) || (inputs[i].id == "questao3C" && document.getElementById("questao3A").value != 2)) {
+						if ((inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao" ) || 
+								(inputs[i].id == "questao3C" && document.getElementById("questao3A").value != 2) ||
+								(inputs[i].disabled == true)) {
 						}
 						else{
 							inputs[i].focus();
@@ -496,7 +532,7 @@
 				</div>
 				<div class="input-field col s12">
 					<label>7. Assinale a sua SEGUNDA opção de matéria para oferecer mentoria.</label><br><br>
-					<select id="questao7" name="questao7" onchange="desabilitarNotasEnemNaoSelecionadas();">
+					<select id="questao7" name="questao7">
 						<option value="" selected disabled>Segunda opção</option>
 						<option value="1">1 - Física</option>
 						<option value="2">2 - Química</option>
@@ -525,11 +561,11 @@
 						</thead>
 						<tbody>
 							<tr style="white-space:nowrap;">
-								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
-								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;"></td>
+								<td><input type="text" id="questao8A" class="questao8" name="questao8A" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;" disabled></td>
+								<td><input type="text" id="questao8B" class="questao8" name="questao8B" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;" disabled></td>
+								<td><input type="text" id="questao8C" class="questao8" name="questao8C" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;" disabled></td>
+								<td><input type="text" id="questao8D" class="questao8" name="questao8D" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;" disabled></td>
+								<td><input type="text" id="questao8E" class="questao8" name="questao8E" placeholder="0000,0"  style="border: none; text-align: center; height: 22px;" disabled></td>
 							</tr>
 						</tbody>
 					</table>
@@ -585,6 +621,10 @@
 						<option value="5" >LinkedIn</option>
 						<option value="6" >Outros</option>
 					</select>
+				</div>
+				<div class="input-field col s12">
+					<label>14. Caso a resposta anterior seja "Outros".</label><br><br>
+					<input type="text" id="questao14" name="questao14" placeholder="A outra plataforma é..." data-length = "50" maxlength = "50" disabled><br>
 				</div>
 				<div class="input-field col s12">
 					<a class="btn waves-effect waves-light" style="background-color: #f46c3c" href="/"><i class="material-icons left">backspace</i>Voltar</a>
