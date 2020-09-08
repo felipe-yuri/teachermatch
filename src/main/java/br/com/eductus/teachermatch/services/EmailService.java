@@ -36,17 +36,16 @@ public class EmailService {
 		"<body class=\"container\">" +
 		"" +
 		"	<div class=\"card-panel\" align=\"center\" style=\"background-color: #0c80ac;\">" +
-		"		<h1 style=\"font-size:4vw;\"><font face=\"Holtwood One SC, serif\" color=\"white\">MENTORIZA</font></h1>" +
+		"		<h3 style=\"font-size:4vw;\"><font face=\"Holtwood One SC, serif\" color=\"white\">MENTORIZA</font></h3>" +
 		"	</div>" +
 		"	<br>" +
 		"	<div class=\"row\">" +
 		"		<div>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Olá <b>" + nome +"</b>,</p>" + 
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">O seu cadastro foi finalizado com sucesso. <b>Parabéns!</b></p>" +
-		"			<p style=\"text-align: justify; text-justify: inter-word;\">Fique atento para novas informações. Bons estudos e até em breve!</p>" +
+		"			<p style=\"text-align: justify; text-justify: inter-word;\">Fique atento para novas informações. Bons estudos e até breve!</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Atenciosamente,</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Equipe Eductus</p>" +
-		"			<p style=\"text-align: justify; text-justify: inter-word;\">Teste <b>"+ mentores.getPontuacao() +" pontos</b>.</p>" +
 		"		</div>" +
 		"		<br>" +
 		"	</div>" +
@@ -75,17 +74,16 @@ public class EmailService {
 		"<body class=\"container\">" +
 		"" +
 		"	<div class=\"card-panel\" align=\"center\" style=\"background-color: #0c80ac;\">" +
-		"		<h1 style=\"font-size:4vw;\"><font face=\"Holtwood One SC, serif\" color=\"white\">MENTORIZA</font></h1>" +
+		"		<h3 style=\"font-size:4vw;\"><font face=\"Holtwood One SC, serif\" color=\"white\">MENTORIZA</font></h3>" +
 		"	</div>" +
 		"	<br>" +
 		"	<div class=\"row\">" +
 		"		<div>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Olá <b>" + nome +"</b>,</p>" + 
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">O seu cadastro foi finalizado com sucesso. <b>Parabéns!</b></p>" +
-		"			<p style=\"text-align: justify; text-justify: inter-word;\">Fique atento para novas informações. Bons estudos e até em breve!</p>" +
+		"			<p style=\"text-align: justify; text-justify: inter-word;\">Fique atento para novas informações. Bons estudos e até breve!</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Atenciosamente,</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Equipe Eductus</p>" +
-		"			<p style=\"text-align: justify; text-justify: inter-word;\">Teste <b>"+ mentorandos.getPontuacao() +" pontos</b>.</p>" +
 		"		</div>" +
 		"		<br>" +
 		"	</div>" +
