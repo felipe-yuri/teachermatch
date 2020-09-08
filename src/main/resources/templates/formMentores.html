@@ -190,11 +190,11 @@
 				})
 			});
 			
-			// Função para mudar a questao 3b
+			// Função para mudar a questao 10b
 			mudar10B();
 			
-			// Função para mudar a questao 3b
-			mudar3B();
+			// Função para mudar a questao 3
+			mudar3();
 			
 			// Função para carregar todos os selects da página
 			$('select').formSelect();
@@ -210,7 +210,7 @@
 				for (var i = 0; i < inputs.length; i++) {
 					inputs[i].style.background = "#ffffff";
 					if (inputs[i].value == undefined || inputs[i].value == null || inputs[i].value == "") {
-						if (inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao") {
+						if ((inputs[i].id == "questao10B" && document.getElementById("questao10A").value == "nao" ) || (inputs[i].id == "questao3C" && document.getElementById("questao3A").value != 2)) {
 						}
 						else{
 							inputs[i].focus();
@@ -223,11 +223,10 @@
 				
 				for (var i = 0; i < selects.length; i++) {
 					if (selects[i].value == undefined || selects[i].value == null || selects[i].value == "") {
-						if (selects[i].id == "questao3B" && document.getElementById("questao3A").value != 1) {
-						}
+						if (selects[i].id == "questao3B" && document.getElementById("questao3A").value != 1)  {}
 						else{
-							alert("Preencha o campo " + selects[i].getAttribute("name"));
-							return false;
+							  alert("Preencha o campo " + selects[i].getAttribute("name"));
+							  return false;
 						}
 					}
 				}
@@ -258,21 +257,31 @@
 			$('select').formSelect();
 		}
 	
-		// Função para habilitar questão 3B
-		function mudar3B() {
+		// Função para habilitar questão 3
+		function mudar3() {
 			var questao3A = document.getElementById("questao3A").value;
 			var questao3B = document.getElementById("questao3B");
+			var questao3C = document.getElementById("questao3C");
 			
 			if (questao3A == 1){
 				questao3B.disabled = false;
-			}
+				questao3C.disabled = true;
+				questao3C.value = "";
+			} 
+			else if (questao3A == 2){
+					questao3C.disabled = false;
+					questao3B.disabled = true;
+					questao3B.value = "";
+				}
 			else {
-				questao3B.disabled = true;
-				questao3B.value = "";
+					questao3B.disabled = true;
+					questao3B.value = "";
+					questao3C.disabled = true;
+					questao3C.value = "";
 			}
 			$('select').formSelect();
 		}
-	  
+		
 	  // Função para carregar lista de cidade da API do IBGE 
 		function carregarCidades(){
 			$('select#cidade').empty();
@@ -426,7 +435,7 @@
 				</div>
 				<div class="input-field col s12">
 					<label>3.A. Qual sua profissão?</label><br><br>
-					<select id="questao3A" name="questao3A" onchange="mudar3B()">
+					<select id="questao3A" name="questao3A" onchange="mudar3()">
 						<option value="" selected disabled>Selecione</option>
 						<option value="1">Estudante</option>
 						<option value="2">Professor</option>
@@ -455,6 +464,10 @@
 						<option value="16">Educação superior - 12° Período</option>
 						<option value="17">Outros</option>
 					</select>
+				</div>
+				<div class="input-field col s12">
+					<label>3.C. Informe o curso e/ou ano escolar que você leciona.</label><br><br>
+						<input type="text" id="questao3C" name="questao3C"><br>
 				</div>
 				<div class="input-field col s12">
 					<label>4. Onde você trabalha? Se for estudante, informe o nome da Instituição em que estuda.</label><br><br>

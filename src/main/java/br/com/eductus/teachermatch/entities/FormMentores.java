@@ -29,6 +29,7 @@ public class FormMentores implements Serializable{
 	private String questao2;
 	private String questao3A;
 	private String questao3B;
+	private String questao3C;
 	private String questao4;
 	private String questao5;
 	private String questao6;
