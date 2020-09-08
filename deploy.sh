@@ -9,7 +9,7 @@ echo -e "\n"
 git pull
 echo -e "\n"
 
-echo "2. Limpando e gerando package"
+echo "2. Limpando e gerando o package"
 echo -e "\n"
 mvn clean package
 echo -e "\n"
