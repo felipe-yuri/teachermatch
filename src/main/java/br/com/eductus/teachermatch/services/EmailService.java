@@ -46,6 +46,7 @@ public class EmailService {
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Fique atento para novas informações. Bons estudos e até breve!</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Atenciosamente,</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Equipe Eductus</p>" +
+		"			<p style=\"text-align: justify; text-justify: inter-word;\">Teste <b>"+ mentores.getPontuacao() +" pontos</b>.</p>" +
 		"		</div>" +
 		"		<br>" +
 		"	</div>" +
@@ -84,6 +85,7 @@ public class EmailService {
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Fique atento para novas informações. Bons estudos e até breve!</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Atenciosamente,</p>" +
 		"			<p style=\"text-align: justify; text-justify: inter-word;\">Equipe Eductus</p>" +
+		"			<p style=\"text-align: justify; text-justify: inter-word;\">Teste <b>"+ mentorandos.getPontuacao() +" pontos</b>.</p>" +
 		"		</div>" +
 		"		<br>" +
 		"	</div>" +
