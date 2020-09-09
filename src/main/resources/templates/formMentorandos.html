@@ -161,10 +161,10 @@
 	// Função para carregar lista de cidades da API do IBGE 
 	function carregarCidades(){
 	$('select#cidade').empty();
-		var uf = document.getElementById("estado").value;
-	   var listaCidades;
+	var uf = document.getElementById("estado").value;
+	var listaCidades;
 	var xmlHttp = new XMLHttpRequest();
-	   xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
+	xmlHttp.open( "GET", "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/distritos?orderBy=nome", false);
 	xmlHttp.send(null);
 	listaCidades = JSON.parse(xmlHttp.response);
 	
@@ -451,6 +451,27 @@
 				<label>15. Caso a resposta anterior seja "Outros".</label><br><br>
 				<input type="text" id="questao15" name="questao15" placeholder="A outra plataforma é..." data-length = "50" maxlength = "50" disabled><br>
 			</div>
+			<div class="input-field col s12">
+					<label>16. Em qual opção você se encaixa melhor?</label><br><br>
+					<select id="questao13" name="questao13">
+						<option value="" selected disabled>Selecione</option>
+						<option value="" selected disabled>Selecione</option>
+						<option value="1" >Mentor Extremamente dedicado</option>
+						<option value="2" >Mentor Esforçado</option>
+						<option value="3" >Mentor Criativo</option>
+						<option value="4" >Mentor Alguém com muita dificuldade</option>
+					</select>
+				</div>
+				<div class="input-field col s12">
+					<label>17. Que tipo de mentor você está procurando?</label><br><br>
+					<select id="questao13" name="questao13">
+						<option value="1" >Metódico (muito organizado)</option>
+						<option value="2" >Flexível</option>
+						<option value="3" >Criativo</option>
+						<option value="4" >Prático (vai direto ao ponto</option>
+						<option value="5" >Amigo</option>
+					</select>
+				</div>
 			<div class="input-field col s12">
 				<a class="btn waves-effect waves-light" style="background-color: #f46c3c" href="/"><i class="material-icons left">backspace</i>Voltar</a>
 				<button class="btn waves-effect waves-light" style="background-color: #54c4db" type="submit" id="cadastrar">Enviar<i class="material-icons right">send</i></button><br><br>
