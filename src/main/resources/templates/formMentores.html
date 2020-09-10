@@ -152,6 +152,7 @@
 			// Executar ao alterar select
 			$("#questao6").on("change", desabilitarNotasEnemNaoSelecionadas);
 			$("#questao7").on("change", desabilitarNotasEnemNaoSelecionadas);
+			desabilitarNotasEnemNaoSelecionadas();
 			
 			// Carregar cidades ao voltar a página
 			var estado = document.getElementById("estado").value;
@@ -307,11 +308,11 @@
 			else if (questao3A == 2){
 					questao3C.disabled = false;
 					questao3B.disabled = true;
-					questao3B.value = "";
+					questao3B.value = "0";
 				}
 			else {
 					questao3B.disabled = true;
-					questao3B.value = "";
+					questao3B.value = "0";
 					questao3C.disabled = true;
 					questao3C.value = "";
 			}
@@ -487,7 +488,7 @@
 				<div class="input-field col s12">
 					<label>3.B. Informe o seu curso ou ano escolar.</label><br><br>
 					<select id="questao3B" name="questao3B">
-						<option value="" selected disabled>Selecione</option>
+						<option value="0" selected disabled>Selecione</option>
 						<option value="1">Ensino médio - 1° Ano</option>
 						<option value="2">Ensino médio - 2° Ano</option>
 						<option value="3">Ensino médio - 3° Ano</option>
