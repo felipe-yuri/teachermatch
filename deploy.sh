@@ -11,12 +11,12 @@ echo -e "\n"
 
 echo "2. Limpando e gerando o package"
 echo -e "\n"
-sudo mvn clean package
+mvn clean package
 echo -e "\n"
 
 echo "3. Movendo package.war para a pasta de deploy do tomcat"
 echo -e "\n"
-sudo mv target/teachermatch-0.0.1-SNAPSHOT.war ~/apps/apache-tomcat-8.5.57/webapps/ROOT.war
+mv target/teachermatch-0.0.1-SNAPSHOT.war ~/apps/apache-tomcat-8.5.57/webapps/ROOT.war
 echo -e "\n"
 
 echo "4. Deploy finalizado com sucesso!!"
