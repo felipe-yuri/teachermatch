@@ -24,10 +24,10 @@ echo -e "\n"
 
 echo "5. Parando o servidor"
 echo -e "\n"
-bash ~/apps/apache-tomcat-8.5.63/bin/catalina.sh stop
+bash ~/apps/apache-tomcat-8.5.63/bin/catalina.sh stop 2> /dev/null
 echo -e "\n"
 
 echo "6. Iniciando o servidor"
 echo -e "\n"
-bash ~/apps/apache-tomcat-8.5.63/bin/catalina.sh start
+bash ~/apps/apache-tomcat-8.5.63/bin/catalina.sh start  2> /dev/null
 echo -e "\n"
