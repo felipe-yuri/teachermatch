@@ -6,6 +6,7 @@ echo -e "\n"
 
 echo "1. Atualização da branch (pull)"
 echo -e "\n"
+git config credential.helper store
 sudo git pull
 echo -e "\n"
 
